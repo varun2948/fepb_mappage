@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "two",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "Name": "hari" }, "geometry": { "type": "Point", "coordinates": [ 82.915146069000059, 29.074983455000051 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "Name": "saduyduf" }, "geometry": { "type": "Point", "coordinates": [ 81.340883086000076, 28.751354480000032 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "Name": "nett" }, "geometry": { "type": "Point", "coordinates": [ 80.463245185000062, 29.13532106100007 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "Name": "gith" }, "geometry": { "type": "Point", "coordinates": [ 85.740043061000051, 28.093126054000038 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "Name": "vvlsdvjhg" }, "geometry": { "type": "Point", "coordinates": [ 85.751013535000084, 27.237429101000032 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "Name": "uysduytjfsdogj" }, "geometry": { "type": "Point", "coordinates": [ 87.654390731000035, 27.511690945000055 ] } }
+]
+}

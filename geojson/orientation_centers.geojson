@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "orientation_centers",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "S.N": 1, "sn": 1, "License_No": 31, "Orientation_Center": "Raj foreign employemnt", "Address": "Kathmandu N.P.-34,Kathmandu", "Contact_No": 4461624, "Expiry_Date": "7\/16\/2019", "Status": "Active", "Lat": 27.6965158, "Long": 85.3244456 }, "geometry": { "type": "Point", "coordinates": [ 85.3244456, 27.6965158 ] } },
+{ "type": "Feature", "properties": { "S.N": 130, "sn": 2, "License_No": 161, "Orientation_Center": "Rauta professional skill development pvt.ltd.", "Address": "Sundar Dulari-6,Morang", "Contact_No": 25588803, "Expiry_Date": "7\/16\/2019", "Status": "Active", "Lat": 26.4610674, "Long": 87.2700905 }, "geometry": { "type": "Point", "coordinates": [ 87.2700905, 26.4610674 ] } },
+{ "type": "Feature", "properties": { "S.N": 131, "sn": 3, "License_No": 130, "Orientation_Center": "S.A training center", "Address": "pokharan.p.-8,Kaski", "Contact_No": 61535142, "Expiry_Date": "7\/16\/2018", "Status": "Inactive", "Lat": 28.228003, "Long": 83.9843933 }, "geometry": { "type": "Point", "coordinates": [ 83.9843933, 28.228003 ] } },
+{ "type": "Feature", "properties": { "S.N": 141, "sn": 4, "License_No": 137, "Orientation_Center": "Priya orientation and training centre pvt. ltd.", "Address": "dhanusadham-7,Dhanusha", "Contact_No": 9851090900, "Expiry_Date": "7\/16\/2019", "Status": "Active", "Lat": 29.28642, "Long": 81.0214183 }, "geometry": { "type": "Point", "coordinates": [ 81.0214183, 29.28642 ] } }
+]
+}

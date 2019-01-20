@@ -1,0 +1,60 @@
+.tt-query,
+        /* UPDATE: newer versions use tt-input instead of tt-query */
+
+        .tt-hint,
+        .tt-input {
+            width: 279px;
+            height: 37px;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 30px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+
+        .tt-query {
+            /* UPDATE: newer versions use tt-input instead of tt-query */
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        .tt-hint {
+            color: #999;
+        }
+
+        .tt-menu {
+
+            width: 275px;
+            margin-top: -1px;
+            padding: 3px 0;
+            */ border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: -3px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            background-color: white;
+        }
+
+        .tt-suggestion {
+
+            padding: 9px 7px;
+            font-size: 15px;
+            line-height: 16px;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            border-bottom: 1px solid #ece6e6;
+        }
+
+        .tt-suggestion:hover {
+            color: #f0f0f0;
+            background-color: #0097cf;
+        }
+
+        .tt-cursor {
+            background-color: #0097cf;
+        }
+
+        .tt-suggestion p {
+            margin: 0;
+        }

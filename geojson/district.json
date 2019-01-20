@@ -1,0 +1,310 @@
+[
+  {
+    "District": "Chitawan",
+    "Province": "Province3"
+  },
+  {
+    "District": "Kathmandu",
+    "Province": "Province3"
+  },
+  {
+    "District": "Bhaktapur",
+    "Province": "Province3"
+  },
+  {
+    "District": "Lalitpur",
+    "Province": "Province3"
+  },
+  {
+    "District": "Sindhupalchok",
+    "Province": "Province3"
+  },
+  {
+    "District": "Dhading",
+    "Province": "Province3"
+  },
+  {
+    "District": "Dolakha",
+    "Province": "Province3"
+  },
+  {
+    "District": "Kavrepalanchok",
+    "Province": "Province3"
+  },
+  {
+    "District": "Makawanpur",
+    "Province": "Province3"
+  },
+  {
+    "District": "Nuwakot",
+    "Province": "Province3"
+  },
+  {
+    "District": "Ramechhap",
+    "Province": "Province3"
+  },
+  {
+    "District": "Rasuwa",
+    "Province": "Province3"
+  },
+  {
+    "District": "Sindhuli",
+    "Province": "Province3"
+  },
+  {
+    "District": "Bhojpur",
+    "Province": "Province1"
+  },
+  {
+    "District": "Dhankuta",
+    "Province": "Province1"
+  },
+  {
+    "District": "Ilam",
+    "Province": "Province1"
+  },
+  {
+    "District": "Jhapa",
+    "Province": "Province1"
+  },
+  {
+    "District": "Khotang",
+    "Province": "Province1"
+  },
+  {
+    "District": "Morang",
+    "Province": "Province1"
+  },
+  {
+    "District": "Okhaldhunga",
+    "Province": "Province1"
+  },
+  {
+    "District": "Panchthar",
+    "Province": "Province1"
+  },
+  {
+    "District": "Shankhuwasabha",
+    "Province": "Province1"
+  },
+  {
+    "District": "Solukhumbu",
+    "Province": "Province1"
+  },
+  {
+    "District": "Sunsari",
+    "Province": "Province1"
+  },
+  {
+    "District": "Taplejung",
+    "Province": "Province1"
+  },
+  {
+    "District": "Terhathum",
+    "Province": "Province1"
+  },
+  {
+    "District": "Udayapur",
+    "Province": "Province1"
+  },
+  {
+    "District": "Bara",
+    "Province": "Province2"
+  },
+  {
+    "District": "Dhanusha",
+    "Province": "Province2"
+  },
+  {
+    "District": "Mahottari",
+    "Province": "Province2"
+  },
+  {
+    "District": "Parsa",
+    "Province": "Province2"
+  },
+  {
+    "District": "Rautahat",
+    "Province": "Province2"
+  },
+  {
+    "District": "Saptari",
+    "Province": "Province2"
+  },
+  {
+    "District": "Sarlahi",
+    "Province": "Province2"
+  },
+  {
+    "District": "Siraha",
+    "Province": "Province2"
+  },
+  {
+    "District": "Baglung",
+    "Province": "Province4"
+  },
+  {
+    "District": "Gorkha",
+    "Province": "Province4"
+  },
+  {
+    "District": "Kaski",
+    "Province": "Province4"
+  },
+  {
+    "District": "Lamjung",
+    "Province": "Province4"
+  },
+  {
+    "District": "Manang",
+    "Province": "Province4"
+  },
+  {
+    "District": "Mustang",
+    "Province": "Province4"
+  },
+  {
+    "District": "Myagdi",
+    "Province": "Province4"
+  },
+  {
+    "District": "NawalparasiEast",
+    "Province": "Province4"
+  },
+  {
+    "District": "Parbat",
+    "Province": "Province4"
+  },
+  {
+    "District": "Syangja",
+    "Province": "Province4"
+  },
+  {
+    "District": "Tanahu",
+    "Province": "Province4"
+  },
+  {
+    "District": "Arghakhanchi",
+    "Province": "Province5"
+  },
+  {
+    "District": "Banke",
+    "Province": "Province5"
+  },
+  {
+    "District": "Bardiya",
+    "Province": "Province5"
+  },
+  {
+    "District": "Dang",
+    "Province": "Province5"
+  },
+  {
+    "District": "Gulmi",
+    "Province": "Province5"
+  },
+  {
+    "District": "Kapilbastu",
+    "Province": "Province5"
+  },
+  {
+    "District": "NawalparasiWest",
+    "Province": "Province5"
+  },
+  {
+    "District": "Palpa",
+    "Province": "Province5"
+  },
+  {
+    "District": "Pyuthan",
+    "Province": "Province5"
+  },
+  {
+    "District": "Rolpa",
+    "Province": "Province5"
+  },
+  {
+    "District": "RukumEast",
+    "Province": "Province5"
+  },
+  {
+    "District": "Rupandehi",
+    "Province": "Province5"
+  },
+  {
+    "District": "Dailekh",
+    "Province": "Province6"
+  },
+  {
+    "District": "Dolpa",
+    "Province": "Province6"
+  },
+  {
+    "District": "Humla",
+    "Province": "Province6"
+  },
+  {
+    "District": "Jajarkot",
+    "Province": "Province6"
+  },
+  {
+    "District": "Jumla",
+    "Province": "Province6"
+  },
+  {
+    "District": "Kalikot",
+    "Province": "Province6"
+  },
+  {
+    "District": "Mugu",
+    "Province": "Province6"
+  },
+  {
+    "District": "RukumWest",
+    "Province": "Province6"
+  },
+  {
+    "District": "Salyan",
+    "Province": "Province6"
+  },
+  {
+    "District": "Surkhet",
+    "Province": "Province6"
+  },
+  {
+    "District": "Achham",
+    "Province": "Province7"
+  },
+  {
+    "District": "Baitadi",
+    "Province": "Province7"
+  },
+  {
+    "District": "Bajhang",
+    "Province": "Province7"
+  },
+  {
+    "District": "Bajura",
+    "Province": "Province7"
+  },
+  {
+    "District": "Dadheldhura",
+    "Province": "Province7"
+  },
+  {
+    "District": "Darchula",
+    "Province": "Province7"
+  },
+  {
+    "District": "Doti",
+    "Province": "Province7"
+  },
+  {
+    "District": "Kailali",
+    "Province": "Province7"
+  },
+  {
+    "District": "Kanchanpur",
+    "Province": "Province7"
+  }
+]

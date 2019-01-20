@@ -1,0 +1,18 @@
+<table class="table table-responsive"></table>
+    <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Document Title</th>
+        <th>Description</th>
+        <th>Download</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>UAE</td>
+            <td>Cha</td>
+            <td><a href="../folder/enter file name here">Document Name</a></td>
+        </tr>
+    </tbody>
+</table>

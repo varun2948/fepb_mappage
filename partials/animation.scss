@@ -1,0 +1,25 @@
+@keyframes updown {
+    0%,
+    100% {
+        margin-top: 10px;
+    }
+    50% {
+        margin-top: -10px;
+    }
+}
+
+@keyframes leftright {
+    0%,
+    100% {
+        left: 70%;
+        transform: translateX(-30%);
+        -webkit-transform: translateX(-30%);
+        -ms-transform: translateX(-30%);
+    }
+    50% {
+        left: 30%;
+        transform: translateX(-70%);
+        -webkit-transform: translateX(-70%);
+        -ms-transform: translateX(-70%);
+    }
+}

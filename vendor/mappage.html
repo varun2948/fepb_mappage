@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- OPENLAYERS 4.6.5 -->
+<!--head start-->
+
+<head>
+    <!--meta tag start-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>वैदेशिक रोजगार प्रवर्द्धन बोर्ड</title>
+
+    <!-- faveicon start   -->
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+
+    <!-- stylesheet start -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ol.css">
+    <link rel="stylesheet" type="text/css" href="css/ol3-layerswitcher.css">
+    <link rel="stylesheet" type="text/css" href="css/ol-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/tt-typeaheadcustom.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
+    <!-- Chartist css -->
+    <link href="vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+    <link href="css/c3.css" rel="stylesheet">
+    <link href="css/aboutus.css" rel="stylesheet">
+    <style>
+    .layer-switcher {
+    right: auto;
+}
+   /*     
+        #iw-container .iw-title {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 10px;
+            margin: 0;
+            border-radius: 2px 2px 0 0;
+            color: black;
+            text-transform: uppercase;
+        }*/
+
+        .bg-gb {
+            background-color: #16a696 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        ul.multiselect-container.dropdown-menu.show {
+            position: absolute;
+            transform: none !important;
+
+            top: 39px !important;
+            left: 0px;
+            will-change: transform;
+            max-height: 300px;
+            overflow: auto;
+        }
+
+        label.checkbox {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .btn-group {
+            margin-right: 5px;
+        }
+
+        .box {
+            z-index: 9999;
+            background-color: #8dcde2;
+            height: 100px;
+            right: 0px;
+            float: left;
+        }
+        .custom-popup-header{font-family:Roboto;color:#3590f3;border-bottom:1px solid #ccc;padding-right:20px;padding-bottom:10px}.amenity-name{margin:0}.amenity-nepali-name{margin:0;color:#888}.leaflet-popup-content{padding-right:10px}.custom-popup-content{font-family:Roboto;max-height:200;overflow-y:scroll}.custom-popup-content td{padding:.2rem;font-size:.8rem}.custom-popup-content .td-hoverable{cursor:pointer}.custom-popup-content .td-hoverable:hover{text-decoration:underline;color:#3590f3}.custom-popup-content p{margin:0!important}.custom-popup-content br{margin-bottom:.5em!important}.leaflet-container{background-color:#001518}.custom .leaflet-popup-content-wrapper,.custom .leaflet-popup-tip{background:#fff;border-radius:0;font-family:Roboto;font-size:1rem}.custom .leaflet-popup-scrolled{border:none}
+
+        /*#inputDistrict{
+                display: none;
+            }*/
+    </style>
+</head>
+<!--head end-->
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div id="master-head" class="master-head">
+                <div class="page-toggle-button">
+                    <div class="hamburger-box">
+                        <span class="harmburger-inner"></span>
+                    </div>
+                </div>
+                <div class="menu-wrap">
+                    <a class="logo-link" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <div class="menu">
+                        <span class="close-toggle">
+                            <i class="fa fa-times-circle-o"></i>
+                        </span>
+                        <ul class="primary-menu">
+                            <li class="menu-item-has-current">
+                                <a href="index.html">गृहपृष्ठ</a>
+                            </li>
+                            <li class="menu-item-has-children ">
+                                <a href="aboutus.html">हाम्रो बारेमा </a>
+                                <ul>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको परिचय</a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको गठन</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको काम</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको सचिवालय</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="yojanaKaryakram.html">योजना तथा कार्यक्रम</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="yojanaKaryakram.html">योजना</a>
+                                    </li>
+                                    <li>
+                                        <a href="yojanaKaryakram.html">कार्यक्रम</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a href="media.html">मिडिया</a>
+                                <ul>
+                                    <li>
+                                        <a href="media.html">सूचना तथा समाचारहरु</a>
+                                    </li>
+                                    <li>
+                                        <a href="media.html">प्रेस विज्ञप्ति</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">तस्वीर संग्रह</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">भिडीयो संग्रह</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="download.html">डाउनलोड</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="download.html">ऐन तथा नियमावली </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">बुलेटिन </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">प्रगति प्रतिवेदन</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">रिपोर्ट</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">अन्य डाउनलोड्स</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a href="#">सम्पर्क तथा सुझाब</a> -->
+                                <a href="contactus.html">सम्पर्क</a>
+                                <!-- <ul>
+                                            <li>
+                                                <a href="#">बुलेटिनहरू</a>
+                                            </li>
+                                        </ul> -->
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="mapWrapper">
+    <div class="module-map-header">
+  <div class="row">
+     <div class="col-md-4  clearfix">
+       <ul class="map-nav-list">
+         <li class="active">
+           <a href="#" title="">Map</a>
+         </li>
+         <li>
+           <a href="#" title="">Data</a>
+         </li>
+       </ul>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-6 clearfix">
+        
+       <ul class="map-control-list pull-right">
+         <li>
+           <a href="#" title=""><i class="fa fa-plus"></i></a>
+         </li>
+         <li>
+           <a href="#" title=""><i class="fa fa-minus"></i></a>
+         </li>
+         <li>
+           <a href="#" title=""><i class="fa fa-refresh"></i></a>
+         </li>
+       </ul>
+      <div class="search-wrap">
+          <div class="input-group">
+          <input type="text" class="form-control" placeholder="">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="module-map-body">
+    <div class="map-filter-container">
+        <div class="module-panel">
+            <div class="module-panel-header">
+                <h6>Select Layer</h6>
+            </div>
+            <div class="module-panel-body">
+                <ul class="layer-list">
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input checkbox" id="customControlInline" value="manpowers" checked>
+                            <label class="custom-control-label" for="customControlInline"> <span class="legend-mark bg-danger"></span> Medical Center</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input checkbox" id="customControlInline2">
+                            <label class="custom-control-label" for="customControlInline2"> <span class="legend-mark bg-warning"></span> Orientation Centers</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input checkbox" id="customControlInline3">
+                            <label class="custom-control-label" for="customControlInline3"> <span class="legend-mark bg-primary"></span> Manpowers </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input checkbox" id="customControlInline4">
+                            <label class="custom-control-label" for="customControlInline4"> <span class="legend-mark bg-success"></span> Insurance Companies</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input checkbox" id="customControlInline5">
+                            <label class="custom-control-label" for="customControlInline5"> <span class="legend-mark bg-info"></span> Migrant Resource Centers</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="module-panel mt-2">
+            <div class="module-panel-header">
+                <h6>Apply Filter</h6>
+            </div>
+            <div class="module-panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="selectProvince">Province</label>
+                        <select class="form-control dropdown-list" id="selectProvince">
+                            <option>Province 1</option>
+                            <option>Province 2</option>
+                            <option>Province 3</option>
+                            <option>Province 4</option>
+                            <option>Province 5</option>
+                            <option>Province 6</option>
+                            <option>Province 7</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectDistrict">District</label>
+                        <select class="form-control dropdown-list" id="selectDistrict">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectLocalUnit">Local Unit</label>
+                        <select class="form-control dropdown-list" id="selectLocalUnit">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="reset" class="btn btn-sm btn-block btn-default">Clear</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-sm btn-block btn-primary">Apply</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="map-container">
+        <div class="filter-result-container">
+            <div class="module-panel">
+            <div class="module-panel-header">
+                <h6>Overall Data</h6>
+                <div class="module-panel-action"><span class="close-panel"><i class="fa fa-close"></i></span></div>
+            </div>
+            <div class="module-panel-body">
+                <ul class="result-list">
+                    <li>
+                        <div class="result-item">
+                            <span class="result-count">200</span>
+                            <span class="result-avatar"><i class="fa fa-users"></i></span>
+                            <span class="result-title">Manpowers</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="result-item">
+                            <span class="result-count">1050</span>
+                            <span class="result-avatar"><i class="fa fa-certificate"></i></span>
+                            <span class="result-title">Orientation Centers</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="result-item">
+                            <span class="result-count">780</span>
+                            <span class="result-avatar"><i class="fa fa-hospital-o"></i></span>
+                            <span class="result-title">Medical Centers</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="result-item">
+                            <span class="result-count">1500</span>
+                            <span class="result-avatar"><i class="fa fa-heart"></i></span>
+                            <span class="result-title">Insurance Companies</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="result-item">
+                            <span class="result-count">456</span>
+                            <span class="result-avatar"><i class="fa fa-suitcase"></i></span>
+                            <span class="result-title">Migrant Resource Centers</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    <div id="map" style="width:100%; height:500px">
+                        <div href="#" id="popup" style="display: none;" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content"></div>
+    </div>
+                            
+                        </div>
+        </div>
+</div>
+
+</div>
+    
+
+        <!-- jquery library section  -->
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/ol.js"></script>
+        <script src="js/ol3-layerswitcher.js"></script>
+        <script src="js/bootstrap-multiselect.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js"></script> -->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/twitter-typeahead.js"></script>
+
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $(".dropdown-list").select2({
+                theme: "bootstrap"
+                });
+                $('.close-panel').click(function(){
+                    $(this).closest('.module-panel').addClass('d-none');
+                    console.log('working');
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                // $('.multi-checkbox').multiselect();
+                $('#inputDistrict').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select District',
+
+                });
+                $('#inputProvince').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select Province',
+
+                });
+                $('#capacitySelect').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select Capacity',
+
+                });
+                $('#statusSelect').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Office Type',
+
+                });
+                $('#example-reset-form').on('reset', function () {
+                    $('.multi-checkbox option:selected').each(function () {
+                        $(this).prop('selected', false);
+                    })
+
+                    $('.multi-checkbox').multiselect('refresh');
+                });
+
+
+                var attribution = new ol.control.Attribution({
+                    collapsible: false
+                });
+                var scaleLineControl = new ol.control.ScaleLine();
+                var fullscreen = new ol.control.FullScreen();
+
+                //base Layer start//
+                var osm = new ol.layer.Tile({
+                    title: 'osm', // same name as variable
+                    visible: false,
+                    source: new ol.source.OSM({
+                        attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                            'rest/services/World_Topo_Map/MapServer">OSM</a> | Developer © <a href="http://www.naxa.com.np">NAXA</a>',
+                    })
+                });
+                //base Layer End
+                //START OF ICON FEATURE/STYLE //
+                // ICON RELATED STUFF ((IMG,STYLE,DATA) OF MARKER) //
+
+                var iconStyle = new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                      anchor: [0.5, 40],
+                      anchorXUnits: 'fraction',
+                      anchorYUnits: 'pixels',
+                      scale: 0.8,
+                      opacity: 1,
+                      src: 'images/gov.png'
+                    }))
+                });
+                
+
+
+                // //Stylefunction start
+                // function styleFunction(feature) {
+                //     var style = new ol.style.Style({
+                //         image: new ol.style.Circle({
+                //             radius: 6,
+                //             stroke: new ol.style.Stroke({
+                //                 color: 'white',
+                //                 width: 2
+                //             }),
+                //             fill: new ol.style.Fill({
+                //                 color: 'green'
+                //             })
+                //         })
+                //     });
+                //     return [style];
+                // }
+                // //Stylefunction end
+
+
+                //Province Layer Start
+                var styleCache = {};
+                provincesource = new ol.source.Vector({
+                    'projection': 'EPSG:3857',
+                    url: "geojson/province.geojson",
+                    // url: static_url+'assets/data/province.geojson',
+                    format: new ol.format.GeoJSON()
+                });
+                var provinceLayer = new ol.layer.Vector({
+                    title: "Province",
+                    source: provincesource,
+                    style: function(feature, resolution) {
+                        var text = resolution < 5000 ? 'Province ' + feature.get('Province') : '';
+                        if (!styleCache[text]) {
+                            styleCache[text] = [new ol.style.Style({
+                                fill: new ol.style.Fill({
+                                    color: 'rgba(255, 255, 255, 0)',
+
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#010405',
+                                    lineDash: [4], //[0.1, 5],
+                                    width: 2
+                                }),
+                                text: new ol.style.Text({
+                                    font: '12px Calibri,sans-serif',
+                                    text: text,
+                                    fill: new ol.style.Fill({
+                                        color: '#000'
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: '#fff',
+                                        width: 3
+                                    })
+                                })
+                            })];
+                        }
+                        return styleCache[text];
+                        // return styles[feature.getGeometry().getType().getExtent()];
+                    }
+                });
+                provinceLayer.setZIndex(1);
+                //Province Layer End
+
+
+                markersource = new ol.source.Vector({
+                    'projection': 'EPSG:3857',
+                    url: "geojson/orientation_centers.geojson",
+                    // url: static_url+'assets/data/province.geojson',
+                    format: new ol.format.GeoJSON()
+                });
+                var markerlayer = new ol.layer.Vector({
+                    title: "marker",
+                    source: markersource,
+                    style: iconStyle
+                });
+                markerlayer.setZIndex(1);
+            // console.log(markersource.get());
+
+             //initialize map
+                map = new ol.Map({
+                   layers: [
+            new ol.layer.Group({
+                'title': 'Base maps',
+                layers: [
+                    new ol.layer.Group({
+                        title: 'Water color with labels',
+                        type: 'base',
+                        combine: true,
+                        visible: false,
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.Stamen({
+                                    layer: 'watercolor'
+                                })
+                            }),
+                            new ol.layer.Tile({
+                                source: new ol.source.Stamen({
+                                    layer: 'terrain-labels'
+                                })
+                            })
+                        ]
+                    }),
+                    new ol.layer.Tile({
+                        title: 'Water color',
+                        type: 'base',
+                        visible: false,
+                        source: new ol.source.Stamen({
+                            layer: 'watercolor'
+                        })
+                    }),
+                    new ol.layer.Tile({
+                        title: 'OSM',
+                        type: 'base',
+                        visible: true,
+                        source: new ol.source.OSM()
+                    })
+                ]
+            }),
+            new ol.layer.Group({
+                title: 'Overlays',
+                layers: [ provinceLayer,markerlayer
+                ]
+            })
+        ],
+                    target: document.getElementById('map'),
+
+                    // target: 'map',
+                    controls: ol.control.defaults({
+                        attribution: false
+                    }).extend([attribution, scaleLineControl, fullscreen]),
+
+                     view: new ol.View({
+                      center: [9519345.179083776, 3298410.6445619236],
+                        zoom: 7,
+                        minZoom: 6,
+                        // maxZoom: 13
+                    })
+
+                });
+                var layerSwitcher = new ol.control.LayerSwitcher({
+        tipLabel: 'Légende' // Optional label for button
+    });
+    // map.addControl(layerSwitcher);
+                
+//  IT IS USED TO CHANGE THE 4 digit Lat Longitude into normal 2digit LAT LNG)
+                // ol.proj.fromLonLat([87.54543, 28.54545]),
+
+
+// var extent = map.getView().calculateExtent(map.getSize());
+//         var bottomLeft = ol.proj.transform(ol.extent.getBottomLeft(extent),
+//             'EPSG:3857', 'EPSG:4326');
+// console.log(extent);
+// console.log(bottomLeft);
+
+// console.log(map.getView().calculateExtent(map.getSize()));
+// Nowadays, map.getSize() is optional most of the time (except if you don't share view between different maps), so above is equivalent to the following
+// console.log(map.getView().calculateExtent());
+
+
+//                 var extent = provinceLayer.getSource().getExtent();
+// map.getView().fit(extent, map.getSize());
+
+                //to show the map at certain layer on first load
+//                 var extent = markerlayer.getSource().getExtent();
+// map.getView().fit(extent, map.getSize());
+
+                var element = document.getElementById('popup');
+                map.on('singleclick', function(evt) {
+                     var container = document.getElementById('popup');
+                      var content = document.getElementById('popup-content');
+                      var closer = document.getElementById('popup-closer');
+                    var overlay = new ol.Overlay({
+                        element: container,
+                        autoPan: true,
+                        autoPanAnimation: {
+                            duration: 250
+                        }
+                    });
+                    map.addOverlay(overlay);
+                    closer.onclick = function() {
+                        overlay.setPosition(undefined);
+                        closer.blur();
+                        return false;
+                      };
+                      $('#popup').css("display", "block");
+                    var feature = map.forEachFeatureAtPixel(evt.pixel,
+                        function(feature, layer) {
+                            if (feature) {
+                                if (layer == markerlayer) {
+                                    var extent = feature.getGeometry().getExtent();
+                                    // console.log(feature.get);
+                                    console.log("VARUN");
+                                    var coordinate = evt.coordinate;
+                                    content.innerHTML ='<div class="leaflet-popup-content"style="width: 251px;">' +
+                                    '<div class="custom-popup-header">'+
+                                    '<span class="amenity-name">'+
+                                    '<b>Maternity Child Friendship Hospital</b>'+
+                                    '</span>'+
+                                    '<br>'+
+                                    '<span class="amenity-nepali-name">'+ +'</span>'+
+                                    '</div>'+
+                                    '<div class="custom-popup-content">'+
+                                    '<table class="table table-striped">'+
+                                    '<thead>'+
+                                    '</thead>'+
+                                    '<tbody>'+
+                                    '<tr>'+
+                                    '<td class="td-hoverable" title="title">Operator Type'+
+                                    '</td>'+
+                                    '<td><b>Government'+
+                                    '</b></td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                    '<td class="td-hoverable" title="var">Phone Number'+
+                                    '</td>'+
+                                    '<td><b>061-440144</b>'+
+                                    '</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                    '<td class="td-hoverable" title="var">Phone Number'+
+                                    '</td>'+
+                                    '<td><b>061-440144</b>'+
+                                    '</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                    '<td class="td-hoverable" title="var">Phone Number'+
+                                    '</td>'+
+                                    '<td><b>061-440144</b>'+
+                                    '</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                    '<td class="td-hoverable" title="var">Phone Number'+
+                                    '</td>'+
+                                    '<td><b>061-440144</b>'+
+                                    '</td>'+
+                                    '</tr>'+
+                                    '</tbody>'+
+                                    '</table>'+                            
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+
+                                    '<a href="http://hydro.naxa.com.np/core/hydropower-profile/' + "Varun123454" + '" title="" class="btn bg-gb text-white btn-block btn-sm mt-3">View Detail</a>';
+                                    overlay.setPosition(coordinate);
+
+                                }
+                            }
+                        });
+                    });
+                    var extent = markersource.getExtent();
+                    console.log(extent)
+
+                      map.on('pointermove', function(e) {
+                          if (e.dragging) return;
+                          var pixel = e.map.getEventPixel(e.originalEvent);
+                          var hit = e.map.hasFeatureAtPixel(e.pixel, function(layer){
+                                 return layer.get('name') === 'markerlayer';
+                              });
+                          e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+                        });
+
+ // map.on('pointermove', function(evt) {
+ //  var feature = map.forEachFeatureAtPixel(evt.pixel,
+ //                        function(feature, layer) {
+ //                            if (feature) {
+ //                                if (layer == markerlayer) {
+ //                                    var extent = feature.getGeometry().getExtent();
+ //                                    // console.log(feature.get);
+ //                                    // console.log(extent)
+ //                                    // console.log("VARUN");
+ //                                }
+ //                            }
+ //                        })
+ //                    });
+
+
+
+                $("#inputProvince").on('change',function(){
+                   var province_value= $("#inputProvince").val();
+                   console.log(province_value); 
+                });
+                $("#inputDistrict").on('change',function(){
+                   var dist_value= $("#inputDistrict").val();
+                   console.log(dist_value); 
+                });
+
+                var chkArray = [];
+                $(".checkbox").on("change", function() {
+                    $(".chk:checked").each(function() {
+                     var checkedvalue=($(this).val());
+                     console.log(checkedvalue);
+                    });
+                });
+                
+                $("#buttonClass").click(function() {
+                    getValueUsingClass();
+                });
+
+
+                function getValueUsingClass(){
+                    /* declare an checkbox array */
+                    var chkArray = [];
+                    
+                    /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
+                    $(".chk:checked").each(function() {
+                        chkArray.push($(this).val());
+                    });
+                    
+                    /* we join the array separated by the comma */
+                    var selected;
+                    selected = chkArray.join(',') ;
+                    
+                    /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
+                    if(selected.length > 0){
+                        alert("You have selected " + selected); 
+                    }else{
+                        alert("Please at least check one of the checkbox"); 
+                    }
+                }
+
+
+                // var countChecked = function() {
+                //   var n = $( "input:checked").length;
+                //   console.log(n);
+                // };
+                // countChecked();
+                 
+                // $( "input[type=checkbox]" ).on( "click", countChecked );
+
+
+            //     $(".checkbox").on("change", function() {
+            //         console.log(this.attr());
+            //     var layer_name = $(this).attr('value');
+            //     var layer_id = $(this).attr('id');
+            //     console.log(layer_name);
+            //     console.log(layer_id);
+
+            //     // console.log($(this).is(':checked'));
+            //     //if(window[layer_name].getVisible() == false){
+            //     if ($(this).is(':checked') == true) {
+            //        console.log("true");
+            //     } else {
+            //         console.log("false");
+            //     }
+            // });
+
+              $(".checkbox").on("change", function() {
+                var layer_name = $(this).attr('value');
+                var layer_id = $(this).attr('id');
+                console.log(layer_name);
+                console.log(layer_id);
+
+                // console.log($(this).is(':checked'));
+                //if(window[layer_name].getVisible() == false){
+                if ($(this).is(':checked') == true) {
+                    // window[layer_name].setVisible(true);
+                    markerlayer.setVisible(true);
+                } else {
+                    markerlayer.setVisible(false);
+
+                    // window[layer_name].setVisible(false);
+                }
+            });
+
+
+
+
+                
+            $('#clear1').click(function () {
+                $('#popup-sidebar').css("display", "block");
+                // $('#bar_graph').css("display","block");
+
+            });
+            var substringMatcher = function (strs) {
+                return function findMatches(q, cb) {
+                    var matches, substringRegex;
+
+                    // an array that will be populated with substring matches
+                    matches = [];
+
+                    // regex used to determine if a string contains the substring `q`
+                    substrRegex = new RegExp(q, 'i');
+
+                    // iterate through the pool of strings and for any string that
+                    // contains the substring `q`, add it to the `matches` array
+                    $.each(strs, function (i, str) {
+                        if (substrRegex.test(str)) {
+                            matches.push(str);
+                        }
+                    });
+
+                    cb(matches);
+                };
+            };
+
+            var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+                'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+                'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+                'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+                'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+                'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+                'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+                'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+                'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+            ];
+
+            $('#the-basics .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+                {
+                    name: 'states',
+                    source: substringMatcher(states)
+                });
+});
+
+        </script>
+
+        <!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>

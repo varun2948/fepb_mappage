@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--head start-->
+
+<head>
+
+    <style>
+        .canvasjs-chart-canvas {
+
+            position: inherit !important;
+            width: 550px !important;
+            height: 350px !important;
+
+            -webkit-tap-highlight-color: transparent;
+            cursor: default;
+        }
+    </style>
+
+    <!--meta tag start-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>वैदेशिक रोजगार प्रवर्द्धन बोर्ड</title>
+
+    <!-- faveicon start   -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+
+    <!-- stylesheet start -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
+    <!-- Chartist css -->
+    <link href="vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+    <link href="css/c3.css" rel="stylesheet">
+</head>
+<!--head end-->
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div id="master-head" class="master-head">
+                <div class="page-toggle-button">
+                    <div class="hamburger-box">
+                        <span class="harmburger-inner"></span>
+                    </div>
+                </div>
+                <div class="menu-wrap">
+                    <a class="logo-link" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <div class="menu">
+                        <span class="close-toggle">
+                            <i class="fa fa-times-circle-o"></i>
+                        </span>
+                        <ul class="primary-menu">
+                            <li class="menu-item-has-current">
+                                <a href="index.html">गृहपृष्ठ</a>
+                            </li>
+                            <li class="menu-item-has-children ">
+                                <a href="aboutus.html">हाम्रो बारेमा </a>
+                                <ul>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको परिचय</a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको गठन</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको काम</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको सचिवालय</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="yojanaKaryakram.html">योजना तथा कार्यक्रम</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="yojanaKaryakram.html">योजना</a>
+                                    </li>
+                                    <li>
+                                        <a href="yojanaKaryakram.html">कार्यक्रम</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a href="media.html">मिडिया</a>
+                                <ul>
+                                    <li>
+                                        <a href="media.html">सूचना तथा समाचारहरु</a>
+                                    </li>
+                                    <li>
+                                        <a href="media.html">प्रेस विज्ञप्ति</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">तस्वीर संग्रह</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">भिडीयो संग्रह</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="download.html">डाउनलोड</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="download.html">ऐन तथा नियमावली </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">बुलेटिन </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">प्रगति प्रतिवेदन</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">रिपोर्ट</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">अन्य डाउनलोड्स</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a href="#">सम्पर्क तथा सुझाब</a> -->
+                                <a href="contactus.html">सम्पर्क</a>
+                                <!-- <ul>
+                                            <li>
+                                                <a href="#">बुलेटिनहरू</a>
+                                            </li>
+                                        </ul> -->
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="pb-breadcrumb" style="background:url(images/bg/1.jpg);">
+        <div class="breadcrumb-wrap">
+            <h2>MULTIMEDIA</h2>
+            <ul>
+                <li>
+                    <a href="index.html">गृहपृष्ठ</a>
+                </li>
+                <li>Multimedia</li>
+            </ul>
+        </div>
+    </div>
+    <div class="inner-page section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
+                    <div class="side-menu">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <!-- <li class="nav-item">
+                                        <a class="nav-link active" href="#research" role="tab" data-toggle="tab">बोर्डको मुख्य मुख्य कार्य प्रगति </a>
+                                    </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#worker" role="tab" data-toggle="tab">मृतक कामदारका परिवारलाई आर्थिक सहायता </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#handicapped" role="tab" data-toggle="tab">अङ्गभङ्गलाई आर्थिक सहायता</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#return_worker" role="tab" data-toggle="tab">बैदेशिक रोजगारवाट विचल्ली भई फर्किएका कामदार एवं तिनका परिवारलाई आर्थिक सहायता </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#dest" role="tab" data-toggle="tab">गन्तव्य मुलुकवाट शव झिकाएको</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#return_dead" role="tab" data-toggle="tab">मृतक कामदारको शव जिल्ला पु¥याउन</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#women" role="tab" data-toggle="tab">महिलाले अभिमुखीकरण तालिममा तिरेको शुल्क सोधभर्ना </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#economy" role="tab" data-toggle="tab">आर्थिक मन्दीवाट प्रभावितलाई राहत प्रदान</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#train" role="tab" data-toggle="tab">बैदेसिक रोजगारमा जना चाहनेलाई सिपमुलक तालिम</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#women_train" role="tab" data-toggle="tab">घरेलु महिला कामदार लागि सिपमुलक तालिम </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-9">
+                    <div class="menu-content">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="tab-content">
+                                    <!-- <div role="tabpanel" class="tab-pane  in active" id="research">
+                                                <div class="custom-accordion">
+                                                    <div class="card-header">
+                                                        <h4>बोर्डको मुख्य मुख्य कार्य प्रगति</h4>
+                                                    </div>
+                                                    <div class="chart">
+                                                        <div class="content">
+                                                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div> -->
+
+                                    <div role="tabpanel" class="tab-pane  in active" id="worker">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>मृतक कामदारका परिवारलाई आर्थिक सहायता</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer1" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="handicapped">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>अङ्गभङ्गलाई आर्थिक सहायता</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer2" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="return_worker">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>बैदेशिक रोजगारवाट विचल्ली भई फर्किएका कामदार एवं तिनका परिवारलाई आर्थिक सहायता
+                                                </h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer3" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="dest">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>गन्तव्य मुलुकवाट शव झिकाएको</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer4" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="return_dead">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>मृतक कामदारको शव जिल्ला पु¥याउनो</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer5" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="women">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>महिलाले अभिमुखीकरण तालिममा तिरेको शुल्क सोधभर्नाो</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer6" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="economy">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>आर्थिक मन्दीवाट प्रभावितलाई राहत प्रदान</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer7" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="train">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>बैदेसिक रोजगारमा जना चाहनेलाई सिपमुलक तालिम</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer8" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="women_train">
+                                        <div class="custom-accordion">
+                                            <div class="card-header">
+                                                <h4>घरेलु महिला कामदार लागि सिपमुलक तालिम</h4>
+                                            </div>
+                                            <div class="chart">
+                                                <div class="content">
+                                                    <div id="chartContainer9" style="height: 400px; width: 100%;"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h4>सम्पर्क-ठेगाना</h4>
+                        <div class="content">
+                            <address>
+                                <p>वैदेशिक रोजगार प्रवर्द्धन बोर्ड नयाँबानेश्वर, काठमाडाैं</p>
+                            </address>
+                            <address>
+                                <p>फोन नं. ००१-४१०५०६८, ४१०५०६२</p>
+                                <p>फ्याक्स नं. ०१४१०५०६१</p>
+                                <p>र्इमेलः-info@fepb.gov.np</p>
+                                <p>टोल फ्रि नं‌‌. १६६००१-५०००५</p>
+
+                                <p>वेवसाइटः- http://fepb.gov.np</p>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h4>सामाजिक संजाल</h4>
+                        <div class="content">
+                            <div class="footer-social">
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </div>
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" placeholder="Your Email address..." class="form-control">
+                                    <button type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h4>फेसबुक पेज</h4>
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <div class="container">
+            <div class="text">
+                Copyright © 2018. वैदेशिक रोजगार प्रवर्द्धन बोर्ड
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script src="vendor/chartist/js/chartist.min.js"></script>
+    <script src="vendor/chartist/js/custom/donut-chart2.js"></script>
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+    <script src="js/c3.js"></script>
+    <script>
+        window.onload = function () {
+
+            // var chart = new CanvasJS.Chart("chartContainer", {
+            // 	animationEnabled: true,
+            // 	theme: "light2", // "light1", "light2", "dark1", "dark2"
+            // 	title:{
+            // 		text: "Top Oil Reserves"
+            // 	},
+            // 	axisY: {
+            // 		title: ""
+            // 	},
+            // 	data: [{
+            // 		type: "column",
+            // 		showInLegend: true,
+            // 		legendMarkerColor: "grey",
+            // 		legendText: "MMbbl = one million barrels",
+            // 		dataPoints: [
+            // 			{ y: 300878, label: "२०६५/२०६६" },
+            // 			{ y: 266455,  label: "२०६६/२०६७" },
+            // 			{ y: 169709,  label: "२०६७/२०६८" },
+            // 			{ y: 158400,  label: "२०६८/२०६९" },
+            // 			{ y: 142503,  label: "२०६९/२०७०" },
+            // 			{ y: 101500, label: "२०७०/२०७१" },
+            //
+            // 		]
+            // 	}]
+            // });
+            // chart.render();
+
+
+
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 90, label: "२०६५/२०६६" },
+                        { y: 418, label: "२०६६/२०६७" },
+                        { y: 549, label: "२०६७/२०६८" },
+                        { y: 646, label: "२०६८/२०६९" },
+                        { y: 727, label: "२०६९/२०७०" },
+                        { y: 880, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart1.render();
+
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 8, label: "२०६५/२०६६" },
+                        { y: 11, label: "२०६६/२०६७" },
+                        { y: 19, label: "२०६७/२०६८" },
+                        { y: 56, label: "२०६८/२०६९" },
+                        { y: 93, label: "२०६९/२०७०" },
+                        { y: 114, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart2.render();
+
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 4, label: "२०६५/२०६६" },
+                        { y: 75, label: "२०६६/२०६७" },
+                        { y: 77, label: "२०६७/२०६८" },
+                        { y: 0, label: "२०६८/२०६९" },
+                        { y: 0, label: "२०६९/२०७०" },
+                        { y: 0, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart3.render();
+
+            var chart4 = new CanvasJS.Chart("chartContainer4", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 1, label: "२०६५/२०६६" },
+                        { y: 8, label: "२०६६/२०६७" },
+                        { y: 8, label: "२०६७/२०६८" },
+                        { y: 11, label: "२०६८/२०६९" },
+                        { y: 15, label: "२०६९/२०७०" },
+                        { y: 13, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart4.render();
+
+            var chart5 = new CanvasJS.Chart("chartContainer5", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 5, label: "२०६५/२०६६" },
+                        { y: 15, label: "२०६६/२०६७" },
+                        { y: 25, label: "२०६७/२०६८" },
+                        { y: 122, label: "२०६८/२०६९" },
+                        { y: 241, label: "२०६९/२०७०" },
+                        { y: 447, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart5.render();
+
+            var chart6 = new CanvasJS.Chart("chartContainer6", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 44, label: "२०६६/२०६७" },
+                        { y: 1018, label: "२०६७/२०६८" },
+                        { y: 265, label: "२०६८/२०६९" },
+                        { y: 1755, label: "२०६९/२०७०" },
+                        { y: 913, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart6.render();
+
+            var chart7 = new CanvasJS.Chart("chartContainer7", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 193, label: "२०६५/२०६६" },
+                        { y: 63, label: "२०६६/२०६७" },
+                        { y: 52, label: "२०६७/२०६८" },
+                        { y: 0, label: "२०६८/२०६९" },
+                        { y: 0, label: "२०६९/२०७०" },
+                        { y: 0, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart7.render();
+
+            var chart8 = new CanvasJS.Chart("chartContainer8", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 0, label: "२०६५/२०६६" },
+                        { y: 25, label: "२०६६/२०६७" },
+                        { y: 0, label: "२०६७/२०६८" },
+                        { y: 0, label: "२०६८/२०६९" },
+                        { y: 1450, label: "२०६९/२०७०" },
+                        { y: 2000, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart8.render();
+
+
+            var chart9 = new CanvasJS.Chart("chartContainer9", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    showInLegend: true,
+                    legendMarkerColor: "grey",
+                    legendText: "",
+                    dataPoints: [
+                        { y: 0, label: "२०६५/२०६६" },
+                        { y: 0, label: "२०६६/२०६७" },
+                        { y: 0, label: "२०६७/२०६८" },
+                        { y: 0, label: "२०६८/२०६९" },
+                        { y: 650, label: "२०६९/२०७०" },
+                        { y: 3587, label: "२०७०/२०७१" },
+                    ]
+                }]
+            });
+            chart9.render();
+
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+</body>
+
+</html>

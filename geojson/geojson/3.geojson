@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "three",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "name": "ram" }, "geometry": { "type": "Point", "coordinates": [ 84.867890398000043, 27.25937004900004 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "name": "shyam" }, "geometry": { "type": "Point", "coordinates": [ 83.458184520000032, 29.014645850000079 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "name": "hari" }, "geometry": { "type": "Point", "coordinates": [ 86.562828593000063, 27.610425209000027 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "name": "sita" }, "geometry": { "type": "Point", "coordinates": [ 83.096158886000069, 27.610425209000027 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "name": "gita" }, "geometry": { "type": "Point", "coordinates": [ 81.253119296000079, 29.689329986000075 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "name": "gori" }, "geometry": { "type": "Point", "coordinates": [ 86.727385699000081, 26.496922123000047 ] } }
+]
+}

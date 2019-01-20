@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Educational_Facilities",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID_1": 68, "name": "Foreign Employment Promotion Board", "Address": "New Baneshwor, Kathmadu, Nepal", "Type": "Board", "web": "http://www.fepb.gov.np", "Contact_Nu": "01-1233454", "Contact_Pe": "Ram Bahadur Sherpa", "Male_Stude": 0, "Female_Stu": 0, "Structure_": null, "Earthquake": null, "X": 83.9337179, "Y": 27.8993142, "College_He": null, "Total_Stud": 0, "open_Space": null, "Evacuation": null, "Fire_Extin": null, "Remarks": null }, "geometry": { "type": "Point", "coordinates": [ 85.336102, 27.692810 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 69, "name": "Ram Training Institute", "Address": "Rampur", "Type": "Training Center", "web": "http://example.com", "Contact_Nu": "984672357", "Contact_Pe": null, "Male_Stude": 0, "Female_Stu": 0, "Structure_": null, "Earthquake": null, "X": 83.7788616, "Y": 27.95304, "College_He": null, "Total_Stud": 0, "open_Space": null, "Evacuation": null, "Fire_Extin": null, "Remarks": null }, "geometry": { "type": "Point", "coordinates": [  85.321851, 27.005359] } }
+]}

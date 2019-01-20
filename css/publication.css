@@ -1,0 +1,52 @@
+.infoModal .btn:focus,
+.infoModal .btn:active,
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#image-gallery .modal-footer {
+    display: block;
+}
+
+.publicationWrapper .thumb {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* margin-right: 10px; */
+    /* border: 1px solid black; */
+    padding-bottom: 10px;
+}
+
+.publicationWrapper .thumbBox {
+    background: #e6e6e6;
+    padding: 15px;
+}
+
+.publicationWrapper .modal-content {
+    margin-top: 104px;
+}
+
+.publicationWrapper .content h3 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.publicationWrapper .content p {
+    font-size: 14px;
+    text-align: center;
+    color: #afafaf;
+    padding: 10px 0;
+}
+
+.publicationWrapper .content {
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 1323px) {
+    .publicationWrapper .thumbBox {
+        background: #e6e6e6;
+        padding: 15px;
+    }
+}

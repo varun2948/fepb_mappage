@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "five",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "name": "aashish" }, "geometry": { "type": "Point", "coordinates": [ 86.868529926000065, 26.584443804000045 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "name": "Hare" }, "geometry": { "type": "Point", "coordinates": [ 83.442106078000052, 28.535601829000029 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "name": "ram" }, "geometry": { "type": "Point", "coordinates": [ 81.026953157000037, 28.642677574000061 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "name": "krishna" }, "geometry": { "type": "Point", "coordinates": [ 82.097710609000046, 29.879997297000045 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "name": "shyam" }, "geometry": { "type": "Point", "coordinates": [ 82.917911569000069, 27.501420864000067 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "name": "narayan" }, "geometry": { "type": "Point", "coordinates": [ 88.084795396000061, 26.430618874000061 ] } }
+]
+}

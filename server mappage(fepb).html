@@ -1,0 +1,1573 @@
+@extends('layouts.frontmaster')
+@push('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/bootstrap.min.css') }}">
+   
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/ol.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/ol3-layerswitcher.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/ol-popup.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/tt-typeaheadcustom.css') }}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/newcss/mapstyle.css') }}">
+
+    <!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
+    <!-- Chartist css -->
+    <!--<link href="{{ asset('frontend/vendorcss/chartist.min.css') }}" rel="stylesheet" />-->
+    <!--<link href="{{ asset('frontend/vendorcss/chartist-custom.css') }}" rel="stylesheet" />-->
+    <!--<link href="{{ asset('frontend/newcss/c3.css') }}" rel="stylesheet">-->
+    <link href="{{ asset('frontend/newcss/aboutus.css') }}" rel="stylesheet">
+    <style>
+            .ol-full-screen {
+            right: 67.5em;
+            top: 0.5em;
+        }
+        * body{
+            overflow-x: hidden; 
+        }
+        .layer-switcher {
+        right: auto;
+        }
+  
+        .bg-gb {
+            background-color: #16a696 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        ul.multiselect-container.dropdown-menu.show {
+            position: absolute;
+            transform: none !important;
+
+            top: 39px !important;
+            left: 0px;
+            will-change: transform;
+            max-height: 300px;
+            overflow: auto;
+        }
+
+        label.checkbox {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .btn-group {
+            margin-right: 5px;
+        }
+
+        .box {
+            z-index: 9999;
+            background-color: #8dcde2;
+            height: 100px;
+            right: 0px;
+            float: left;
+        }
+        .custom-popup-header{font-family:Roboto;color:#3590f3;border-bottom:1px solid #ccc;padding-right:20px;padding-bottom:10px}.amenity-name{margin:0}.amenity-nepali-name{margin:0;color:#888}.leaflet-popup-content{padding-right:10px}.custom-popup-content{font-family:Roboto;max-height:200;overflow-y:scroll}.custom-popup-content td{padding:.2rem;font-size:.8rem}.custom-popup-content .td-hoverable{cursor:pointer}.custom-popup-content .td-hoverable:hover{text-decoration:underline;color:#3590f3}.custom-popup-content p{margin:0!important}.custom-popup-content br{margin-bottom:.5em!important}.leaflet-container{background-color:#001518}.custom .leaflet-popup-content-wrapper,.custom .leaflet-popup-tip{background:#fff;border-radius:0;font-family:Roboto;font-size:1rem}.custom .leaflet-popup-scrolled{border:none}
+
+        #loader {
+                    position: absolute;
+                    left: 56%;
+                    top: 68%;
+                    z-index: 1;
+                    margin: -75px 0 0 -75px;
+                    border: 10px solid #ffffff;
+                    border-radius: 50%;
+                    border-top: 9px solid #e10707;
+                    width: 60px;
+                    height: 60px;
+                      -webkit-animation: spin 2s linear infinite;
+                      animation: spin 2s linear infinite;
+                  }
+
+                  @-webkit-keyframes spin {
+                      0% { -webkit-transform: rotate(0deg); }
+                      100% { -webkit-transform: rotate(360deg); }
+                  }
+
+                  @keyframes spin {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                  }
+
+                  /* Add animation to "page content" */
+                  .animate-bottom {
+                      position: relative;
+                      -webkit-animation-name: animatebottom;
+                      -webkit-animation-duration: 1s;
+                      animation-name: animatebottom;
+                      animation-duration: 1s
+                  }
+
+                  @-webkit-keyframes animatebottom {
+                      from { bottom:-100px; opacity:0 } 
+                      to { bottom:0px; opacity:1 }
+                  }
+
+                  @keyframes animatebottom { 
+                      from{ bottom:-100px; opacity:0 } 
+                      to{ bottom:0; opacity:1 }
+                  }
+
+        /*#inputDistrict{
+                display: none;
+            }*/
+    </style>
+@endpush
+
+@section('content')
+    {{--  <div class="pb-breadcrumb" style="background:url({{asset('assets/front/images/bg/1.jpg')}});">
+        <div class="breadcrumb-wrap">
+            <h2>DATATABLES</h2>
+        </div>
+    </div>   --}}
+    <div id="loader"></div>
+    <div class="mapWrapper">
+        <div class="module-map-header">
+            <div class="row">
+                <div class="col-md-4  clearfix">
+                    <ul class="map-nav-list">
+                        <li class="active">
+                            <a href="#" title="">Map</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('datatable')}}" title="">Data</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-6 clearfix">
+
+                    <ul class="map-control-list pull-right">
+                        <li id="zoomin">
+                            <a href="#" title=""><i class="fa fa-plus"></i></a>
+                        </li>
+                        <li id="zoomout">
+                            <a href="#" title=""><i class="fa fa-minus"></i></a>
+                        </li>
+                        <li id="refresh">
+                            <a href="#" title=""><i class="fa fa-refresh"></i></a>
+                        </li>
+                    </ul>
+                    <div class="search-wrap">
+                       <form method="post" action="{{ route('geo-map') }}">
+                        <div class="input-group">
+                            <div id="the-basics">
+                            <input type="text" class="form-control typeahead" placeholder="">
+                        </div>
+                            <!--<div class="input-group-append">-->
+                            <!--    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-map-body">
+            <div class="map-filter-container">
+                <div class="module-panel">
+                    <div class="module-panel-header">
+                        <h6>Select Layer</h6>
+                    </div>
+                    <div class="module-panel-body">
+                        <ul class="layer-list">
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input checkbox" id="customControlInline" value="medicallayer" >
+                                    <label class="custom-control-label" for="customControlInline"><img src="{{ asset("frontend/images/newmarker/med.ico")}}" width="24" height="24" alt=""> Medical Centers</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline2" value="orientationlayer" checked>
+                                    <label class="custom-control-label" for="customControlInline2"> 
+                                    <img src="{{ asset("frontend/images/newmarker/or.ico")}}" width="24" height="24" alt=""> Orientation Centers</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline3" value="manpowerlayer" >
+                                    <label class="custom-control-label" for="customControlInline3"><img src="{{ asset("frontend/images/newmarker/manpower.ico")}}" width="24" height="24" alt=""> Recruiting Agencies </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline4" value="insurancelayer" checked >
+                                    <label class="custom-control-label" for="customControlInline4"> <img src="{{ asset("frontend/images/newmarker/insurance1.ico")}}" width="24" height="24" alt=""> Insurance Companies</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline5" value="migrantlayer" >
+                                    <label class="custom-control-label" for="customControlInline5"> <img src="{{ asset("frontend/images/newmarker/migr.ico")}}" width="24" height="24" alt=""> Migrant Resource Centers</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-panel mt-2">
+                    <div class="module-panel-header">
+                        <h6>Apply Filter</h6>
+                    </div>
+                    <div class="module-panel-body">
+                        <form id="selector">
+                            <div class="form-group">
+                                <label for="selectProvince">Province</label>
+                                <select class="form-control dropdown-list" id="selectProvince" placeholder="Select Province">
+                                    <option  selected value="">Select Province</option>
+                                    <option value="province1">Province1</option>
+                                    <option value="province2">Province2</option>
+                                    <option value="province3">Province3</option>
+                                    <option value="province4">Province4</option>
+                                    <option value="province5">Province5</option>
+                                    <option value="province6">Province6</option>
+                                    <option value="province7">Province7</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="selectDistrict">District</label>
+                                <select class="form-control dropdown-list" id="selectDistrict">
+                                   <option selected value="">Select District</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-group" >
+                                <label for="selectLocalUnit">Local Unit</label>
+                                <select class="form-control dropdown-list" id="selectLocalGov" >
+                                    <option selected value="">Select LocalGovernment</option>
+                                 
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button id="reset" type="reset" class="btn btn-sm btn-block btn-default">Clear</button>
+                                </div>
+                                <div class="col-md-6">
+                                <button id = "apply" type="button" class="btn btn-sm btn-block btn-primary">Apply</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <div class="filter-result-container">
+                    <div class="module-panel">
+                        <div class="module-panel-header">
+                            <h6>Overall Data</h6>
+                            <!--<div class="module-panel-action"><span class="close-panel"><i class="fa fa-close"></i></span></div>-->
+                        </div>
+                        <div class="module-panel-body">
+                            <ul class="result-list">
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count manpower">...</span>
+                                        <span class="result-avatar"><i class="fa fa-users"></i></span>
+                                        <span class="result-title">Recruiting Agency</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count orientation">{{ $data['orientationcount'] }}</span>
+                                        <span class="result-avatar"><i class="fa fa-certificate"></i></span>
+                                        <span class="result-title">Orientation Centers</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count medical">...</span>
+                                        <span class="result-avatar"><i class="fa fa-hospital-o"></i></span>
+                                        <span class="result-title">Medical Centers</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count insurance">{{ $data['insurancecount'] }}</span>
+                                        <span class="result-avatar"><i class="fa fa-heart"></i></span>
+                                        <span class="result-title">Insurance Companies</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count migrant">...</span>
+                                        <span class="result-avatar"><i class="fa fa-suitcase"></i></span>
+                                        <span class="result-title">Migrant Resource Centers</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="map" style="width:100%; height:525px">
+                <div href="#" id="popup" style="display: none;" class="ol-popup">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <div id="popup-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+@endsection
+@push('js')
+
+    <script src="{{ asset('frontend/newjs/ol.js') }}"></script>
+    <script src="{{ asset('frontend/newjs/ol3-layerswitcher.js') }}"></script>
+    <script src="{{ asset('frontend/newjs/bootstrap-multiselect.js') }}"></script>
+
+    <script src="{{ asset('frontend/newjs/typeahead.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+   <script>
+        var APP_URL = {!! json_encode(url('/')) !!}
+               typeahead_data=[];
+            var orientationapi = null;
+            $.ajax({
+                url: APP_URL + '/orientation', //static_url+'assets/data/Hydropower_Sites.geojson',
+                //data: {},
+                async: false, //blocks window close
+                success: function(data) {
+                    orientationapi = data;
+
+                }
+            });
+
+
+             insuranceapi = null;
+            $.ajax({
+                url:APP_URL + '/insurance', //static_url+'assets/data/Hydropower_Sites.geojson',
+                //data: {},
+                async: false, //blocks window close
+                success: function(data) {
+                    insuranceapi = data;
+
+                }
+            });
+            // console.log(orientationapi);
+                // console.log(total);
+                 
+              insurancejson = JSON.parse(insuranceapi);
+                // console.log(insurancejson);
+                $(".insurance").html(insurancejson.features.length);
+                
+             totaljson = JSON.parse(orientationapi);
+            // console.log(totaljson);
+            $(".orientation").html(totaljson.features.length);
+    
+            for (var a = 0; a < totaljson.features.length; a++) {
+                typeahead_data.push(totaljson.features[a].properties.OrName);
+            }
+            // console.log(typeahead_data);
+            for (var b = 0; b < insurancejson.features.length; b++) {
+                typeahead_data.push(insurancejson.features[b].properties.CompanyName);
+            }
+            // console.log(typeahead_data);    
+           
+            var attribution = new ol.control.Attribution({
+                collapsible: false
+            });
+            var scaleLineControl = new ol.control.ScaleLine();
+            var fullscreen = new ol.control.FullScreen();
+
+            //base Layer start//
+            var osm = new ol.layer.Tile({
+                title: 'osm', // same name as variable
+                visible: false,
+                source: new ol.source.OSM({
+                    attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                        'rest/services/World_Topo_Map/MapServer">OSM</a> | Developer © <a href="http://www.naxa.com.np">NAXA</a>',
+                })
+            });
+            //base Layer End
+            //START OF ICON FEATURE/STYLE //
+            // ICON RELATED STUFF ((IMG,STYLE,DATA) OF MARKER) //
+            // var keywords = $('.keywords').val();
+            
+            var urlinsurance =APP_URL +'/insurance';
+          
+            var orientationurl = APP_URL +'/orientation';
+            var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                    anchor: [0.5, 40],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: 0.8,
+                    opacity: 1,
+                    src: '{{ asset("frontend/images/newmarker/med.ico") }}'
+                }))
+            });
+            //Province Layer Start
+            var styleCache = {};
+            provincesource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                url: "{{ asset('frontend/geojson/province.geojson') }}",
+                format: new ol.format.GeoJSON()
+            });
+            provinceLayer = new ol.layer.Vector({
+                title: "Province",
+                source: provincesource,
+                style: function(feature, resolution) {
+                    var text = resolution < 5000 ? 'Province ' + feature.get('Province') : '';
+                    if (!styleCache[text]) {
+                        styleCache[text] = [new ol.style.Style({
+                            fill: new ol.style.Fill({
+                                color: 'rgba(0,0,0,0)'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(0,0,0,1)',
+                                lineDash: [2],
+                                width: 2
+                            }),
+                            text: new ol.style.Text({
+                                font: '12px Calibri,sans-serif',
+                                text: text,
+                                fill: new ol.style.Fill({
+                                    color: '#000'
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: '#fff',
+                                    width: 3
+                                })
+                            })
+                        })];
+                    }
+                    return styleCache[text];
+                }
+            });
+            provinceLayer.setZIndex(1);
+            //Province Layer End
+            medicalsource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                // url: "{{ asset('frontend/geojson/orientation_centers.geojson') }}",
+                format: new ol.format.GeoJSON()
+            });
+            medicallayer = new ol.layer.Vector({
+                title: "medical",
+                visible:false,
+                source: medicalsource,
+                style: iconStyle
+            });
+            medicallayer.setZIndex(1);
+
+            orientationsource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                //url: "{{ asset('frontend/geojson/geojson/4.geojson') }}",
+                url: orientationurl,
+                format: new ol.format.GeoJSON()
+            });
+            orientationlayer = new ol.layer.Vector({
+                title: "manpower",
+                visible:true,
+                source: orientationsource,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                        anchor: [0.5, 40],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'pixels',
+                        scale: 0.8,
+                        opacity: 1,
+                        src: '{{ asset("frontend/images/newmarker/or.ico") }}'
+                    }))
+                })
+            });
+            orientationlayer.setZIndex(1);
+            // console.log(orientationlayer);
+
+            manpowersource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                // url: "{{ asset('frontend/geojson/geojson/1.geojson') }}",
+                // url: static_url+'assets/data/province.geojson',
+                format: new ol.format.GeoJSON()
+            });
+            manpowerlayer = new ol.layer.Vector({
+                title: "manpower",
+                visible:false,
+                source: manpowersource,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                        anchor: [0.5, 40],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'pixels',
+                        scale: 0.8,
+                        opacity: 1,
+                        src: '{{ asset("frontend/images/newmarker/manpower.ico") }}'
+                    }))
+                })
+            });
+            manpowerlayer.setZIndex(1);
+
+            insurancesource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                //url: "{{ asset('frontend/geojson/geojson/2.geojson') }}",
+                url: urlinsurance,
+                format: new ol.format.GeoJSON()
+            });
+            insurancelayer = new ol.layer.Vector({
+                title: "Insurance",
+                visible:true,
+                source: insurancesource,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                        anchor: [0.5, 40],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'pixels',
+                        scale: 0.8,
+                        opacity: 1,
+                        src: '{{ asset("frontend/images/newmarker/insurance1.ico") }}'
+                    }))
+                })
+            });
+            insurancelayer.setZIndex(1);
+
+            migrantsource = new ol.source.Vector({
+                'projection': 'EPSG:3857',
+                // url: "{{ asset('frontend/geojson/geojson/3.geojson') }}",
+                format: new ol.format.GeoJSON()
+            });
+            migrantlayer = new ol.layer.Vector({
+                title: "MigrantLayer",
+                visible:false,
+                source: migrantsource,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                        anchor: [0.5, 40],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'pixels',
+                        scale: 0.8,
+                        opacity: 1,
+                        src: '{{ asset("frontend/images/newmarker/migr.ico") }}'
+                    }))
+                })
+            });
+            migrantlayer.setZIndex(1);
+            // console.log(markersource.get());
+
+            //initialize map
+            map = new ol.Map({
+            layers: [
+                new ol.layer.Group({
+                    'title': 'Base maps',
+                    layers: [
+                        new ol.layer.Group({
+                            title: 'Water color with labels',
+                            type: 'base',
+                            combine: true,
+                            visible: false,
+                            layers: [
+                                new ol.layer.Tile({
+                                    source: new ol.source.Stamen({
+                                        layer: 'watercolor'
+                                    })
+                                }),
+                                new ol.layer.Tile({
+                                    source: new ol.source.Stamen({
+                                        layer: 'terrain-labels'
+                                    })
+                                })
+                            ]
+                        }),
+                        new ol.layer.Tile({
+                            title: 'Water color',
+                            type: 'base',
+                            visible: false,
+                            source: new ol.source.Stamen({
+                                layer: 'watercolor'
+                            })
+                        }),
+
+                        new ol.layer.Tile({
+                            title: 'OSM',
+                            type: 'base',
+                            visible: false,
+                            source: new ol.source.OSM()
+                        }),
+                        new ol.layer.Tile({
+                            title: 'OSM',
+                            type: 'base',
+                            visible: true,
+                            source: new ol.source.OSM({
+                            attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                                'rest/services/World_Topo_Map/MapServer">OSM Light</a> | Developer © <a href="http://www.naxa.com.np">NAXA</a>',
+                            "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+                            // "url": "http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
+                        })
+                        })
+                    ]
+                }),
+                new ol.layer.Group({
+                    title: 'Overlays',
+                    layers: [provinceLayer, medicallayer, orientationlayer, manpowerlayer, insurancelayer, migrantlayer]
+                })
+            ],
+            target: document.getElementById('map'),
+
+            // target: 'map',
+            controls: ol.control.defaults({
+                attribution: false
+            }).extend([attribution, scaleLineControl, fullscreen]),
+
+            view: new ol.View({
+                center: [9519345.179083776, 3298410.6445619236],
+                zoom: 7,
+                minZoom: 6,
+                // maxZoom: 13
+            })
+
+        });
+            var layerSwitcher = new ol.control.LayerSwitcher({
+                tipLabel: 'Légende' // Optional label for button
+            });
+            map.addControl(layerSwitcher);
+                        //  IT IS USED TO CHANGE THE 4 digit Lat Longitude into normal 2digit LAT LNG)
+            // ol.proj.fromLonLat([87.54543, 28.54545]),
+            
+              function styleFunction(feature, resolution) {
+            if (resolution != currentResolution) {
+                calculateClusterInfo(resolution);
+                currentResolution = resolution;
+            }
+            var style;
+            var size = feature.get('features').length;
+            // console.log(feature.get('radius'));
+            if (size > 1) {
+                style = new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: cluster_radius, //feature.get('radius'),
+                        fill: new ol.style.Fill({
+                            color: [22, 166, 150] //, Math.min(0.8, 0.4 + (size / maxFeatureCount))]
+                        })
+                    }),
+                    text: new ol.style.Text({
+                        text: size.toString(),
+                        textAlign: "center",
+                        textBaseline: "middle",
+                        fill: textFill,
+                        stroke: textStroke,
+                        offsetY: 1.5,
+                        offsetX: -1
+                    })
+
+                });
+            } else {
+                var originalFeature = feature.get('features')[0];
+                style = createEarthquakeStyle(originalFeature);
+            }
+            return style;
+        }
+
+
+        //  function styled(feature, resolution) {
+        //             var text = resolution < 5000 ? feature.get('FIRST_DIST') : '';
+        //             if (!styleCache[text]) {
+        //                 styleCache[text] = [new ol.style.Style({
+        //                     fill: new ol.style.Fill({
+        //                         color: 'rgba(0,0,0,0)'
+        //                     }),
+
+        //                     stroke: new ol.style.Stroke({
+        //                         color: 'rgba(73,78,103,0.2)',
+        //                         lineDash: [2],
+        //                         width: 2
+        //                     }),
+        //                     zIndex: 2,
+        //                     text: new ol.style.Text({
+        //                         font: '12px Calibri,sans-serif',
+        //                         text: text,
+        //                         fill: new ol.style.Fill({
+        //                             color: '#000'
+        //                         }),
+        //                         stroke: new ol.style.Stroke({
+        //                             color: '#fff',
+        //                             width: 3
+        //                         })
+        //                     })
+        //                 })];
+        //             }
+        //             return styleCache[text];
+        //         } 
+
+
+        previous_district = null;
+        var provinceurl= "{{ asset("frontend/geojson/province/") }}";
+        function loadDistricts(provinceid) {
+            //Remove Previous Districts 
+            if (previous_district != null) {
+
+                map.removeLayer(previous_district);
+            }
+
+            window[provinceid + "source"] = new ol.source.Vector({
+                projection: 'EPSG:3857',
+                style: styleFunction,
+                url: provinceurl+"/"+provinceid+".geojson",
+                format: new ol.format.GeoJSON()
+            });
+            window[provinceid] = new ol.layer.Vector({
+                source: window[provinceid + "source"],
+                style: function(feature, resolution) {
+                    // console.log(feature);
+                    var text = resolution < 5000 ? feature.get('FIRST_DIST') : '';
+                    if (!styleCache[text]) {
+                        styleCache[text] = [new ol.style.Style({
+                            fill: new ol.style.Fill({
+                                color: 'rgba(255, 255, 255, 0)',
+
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(73,78,103,0.5)',
+                                lineDash: [4], //[0.1, 5],
+                                 width: 2
+                            }),
+                            text: new ol.style.Text({
+                                font: '12px Calibri,sans-serif',
+                                text: text,
+                                fill: new ol.style.Fill({
+                                    color: 'black'
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: 'grey',
+                                    width: 1
+                                })
+                            })
+                        })];
+                    }
+                    return styleCache[text];
+                    // return styles[feature.getGeometry().getType().getExtent()];
+                }
+            });
+
+            map.addLayer(window[provinceid]);
+            window[provinceid].setZIndex(0);
+            previous_district = window[provinceid];
+
+        }
+
+            map.on('moveend', function(e) {
+
+            //console.log(map.getView().getCenter());
+            var center = map.getView().getCenter();
+            var pixel = map.getPixelFromCoordinate(center);
+
+            var zoom = e.map.getView().getZoom();
+
+            // if (previous_district != null && zoom < 7) {
+            //     // clusters.getSource().setDistance(60);
+            //     map.removeLayer(previous_district);
+            // }
+            // if (zoom < 10) {
+
+            //     map.removeLayer(previous_district);
+            //     // map.removeLayer(previous_municipal);
+            // }
+            //console.log(pixel);
+            map.once('postrender', function(event) {
+
+
+                map.forEachFeatureAtPixel(pixel,
+                    function(feature, layer) {
+                // console.log(feature);
+                // if(layer== window[provinceid]){
+               if (feature.N.Province!=undefined && zoom >= 8) {
+                    // clusters.getSource().setDistance(0);
+                    loadDistricts("province" + feature.N.Province);
+
+                }
+               else if ( zoom < 8) {
+                    // clusters.getSource().setDistance(0);
+                    map.removeLayer(previous_district);
+                }
+            // }
+             });
+            });
+
+        });
+            
+            
+            
+                var element = document.getElementById('popup');
+                $('#popup-closer').on('click', function() {
+                    map.setView(new ol.View({
+                        center: [9519345.179083776, 3298410.6445619236],
+                        zoom: 7,
+                        minZoom: 7,
+        
+                    }));
+                });
+            
+            map.on('singleclick', function(evt) {
+                var container = document.getElementById('popup');
+                var content = document.getElementById('popup-content');
+                var closer = document.getElementById('popup-closer');
+                var overlay = new ol.Overlay({
+                    element: container,
+                    autoPan: true,
+                    autoPanAnimation: {
+                        duration: 250
+                    }
+                });
+                map.addOverlay(overlay);
+                closer.onclick = function() {
+                    overlay.setPosition(undefined);
+                    closer.blur();
+                    return false;
+                };
+                $('#popup').css("display", "block");
+                var feature = map.forEachFeatureAtPixel(evt.pixel,
+                    function(feature, layer) {
+                        if (feature) {
+
+                            if (layer != provinceLayer && layer==orientationlayer) {
+                                var extent = feature.getGeometry().getExtent();
+                                // console.log(feature.get);
+                                // console.log(feature);
+                                var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                                '<div class="custom-popup-header">' +
+                                '<span class="amenity-name">' +
+                                '<b>'+ feature.N.OrName +'</b>' +
+                                '</span>' +
+                                '<br>' +
+                                '<span class="amenity-nepali-name">' + feature.N.Address +'</span>' +
+                                '</div>' +
+                                '<div class="custom-popup-content">' +
+                                '<table class="table table-striped">' +
+                                '<thead>' +
+                                '</thead>' +
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td>Permission No' +
+                                '</td>' +
+                                '<td><b>'+feature.N.Permission+
+                                '</b></td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >Contact No' +
+                                '</td>' +
+                                '<td><b>'+feature.N.Contact+'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >Email' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.Email +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >Province' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.Province +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >District' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.District +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>';
+
+                                // '<a href="http://naxa.com.np" title="" class="btn bg-gb text-white btn-block btn-sm mt-3">View Detail</a>';
+                                // console.log("VARUN");
+                                var coordinate = evt.coordinate;
+                                content.innerHTML = popupcontent;
+                                overlay.setPosition(coordinate);
+                            }
+
+                            if (layer != provinceLayer && layer==insurancelayer) {
+                                var extent = feature.getGeometry().getExtent();
+                                // console.log(feature.get);
+                                // console.log(feature);
+                                var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                                '<div class="custom-popup-header">' +
+                                '<span class="amenity-name">' +
+                                '<b>'+ feature.N.CompanyName +'</b>' +
+                                '</span>' +
+                                '<br>' +
+                                '<span class="amenity-nepali-name">' + feature.N.Address +'</span>' +
+                                '</div>' +
+                                '<div class="custom-popup-content">' +
+                                '<table class="table table-striped">' +
+                                '<thead>' +
+                                '</thead>' +
+                                '<tbody>' +
+                                // '<tr>' +
+                                // '<td class="td-hoverable" title="title">Permission No' +
+                                // '</td>' +
+                                // '<td><b>'+feature.N.Permission+
+                                // '</b></td>' +
+                                // '</tr>' +
+                                '<tr>' +
+                                '<td>Contact No' +
+                                '</td>' +
+                                '<td><b>'+feature.N.Contact+'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >Email' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.Email +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >Province' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.Province +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td >District' +
+                                '</td>' +
+                                '<td><b>'+ feature.N.District +'</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>' ;
+
+                                // '<a href="http://naxa.com.np" title="" class="btn bg-gb text-white btn-block btn-sm mt-3">View Detail</a>';
+                                // console.log("VARUN");
+                                var coordinate = evt.coordinate;
+                                content.innerHTML = popupcontent;
+                                overlay.setPosition(coordinate);
+                            }
+                        }
+                    });
+            });
+            var extent = medicalsource.getExtent();
+            // console.log(extent)
+
+            map.on('pointermove', function(e) {
+                if (e.dragging) return;
+                var pixel = e.map.getEventPixel(e.originalEvent);
+                var hit = e.map.hasFeatureAtPixel(e.pixel, function(layer) {
+                    return layer.get('name') === 'markerlayer';
+                });
+                e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+            });
+
+            //loading start
+            provincesource.on('change', function(evt) {
+                var src = evt.target;
+                if (src.getState() === 'ready') {
+                    document.getElementById("loader").style.display = "none";
+
+
+                    // console.log("READY PROVINCE LAYER");
+                }
+
+            });
+            //District,GAPANAPA ACQUIRED FROM API (START)
+            var districtjson= null;
+            $.ajax({
+                url:APP_URL+"/district",
+                async: false,
+                success: function(data){
+                    districtjson=JSON.parse(data);
+                }
+            });
+        //District,GAPANAPA ACQUIRED FROM API (START)
+
+
+
+
+        //FOR FILTERING DISTRICT PROVINCE FROM 767 Data of GAPANAPA (START)
+            //console.log(districtjson);
+            var grades = {};
+                districtjson.forEach( function( item ) {
+                    var grade = grades[item.Province] = grades[item.Province] || {};
+                    grade[item.district] = true;
+                });
+
+                // console.log( JSON.stringify( grades, null, 4 ) )
+                var outputList = [];
+                for( var grade in grades ) {
+                    for( var domain in grades[grade] ) {
+                        outputList.push({ Province: grade, District: domain });
+                    }
+                }
+                // console.log(outputList);
+
+        //FOR FILTERING DISTRICT PROVINCE FROM 767 Data of GAPANAPA (END) 
+
+
+            var filter=null;
+            //loading end
+            $("#selectProvince").on('change', function() {
+                $("#selectDistrict").empty();
+                $("#selectLocalGov").empty();
+                // $("#selectDistrict").html("Select District");
+               
+                // $("#selectDistrict").html("Select District");
+                provincevalue= this.value.toLowerCase();
+                // console.log(provincevalue);
+                // names = [...new Set(outputList.map(a => a.district))];
+
+                // console.log(outputList);
+                filterdistrict= {}
+                filter=outputList.filter(function(item){
+                  return item.Province == provincevalue;      
+                               
+                });
+                // console.log(filter);
+                document.getElementById("selectLocalGov").insertBefore(new Option('Select LocalGov', ''), document.getElementById("selectLocalGov").firstChild);
+
+
+                // console.log(filter.length);
+                 document.getElementById("selectDistrict").insertBefore(new Option('Select District', ''), document.getElementById("selectDistrict").firstChild);
+                 $.each(filter, function (i, item) {
+                $('#selectDistrict').append($('<option>', { 
+                    value: item.District,
+                    text : item.District 
+                }));
+            });
+               
+            });
+            $("#selectDistrict").on('change', function() {
+                $("#selectLocalGov").empty();
+                 
+                districtvalue= this.value.toUpperCase();
+                // console.log(districtvalue);
+                filters=districtjson.filter(function(item){
+                  return item.district == districtvalue;      
+                    //   console.log(item.district);
+                });
+                // console.log(filters);
+                // console.log(filters.length);
+                 document.getElementById("selectLocalGov").insertBefore(new Option('Select LocalGovernment', ''), document.getElementById("selectLocalGov").firstChild);
+                // for(var q=0;q<filters.length; q++){
+                //     // console.log(filter[i].District);
+                //     var select = document.getElementById("selectLocalGov");
+                //     select.options[select.options.length] = new Option(filter[q].gapanapa, filter[q].gapanapa);
+                    // var p = new Option(filters[j].gapanapa, filters[j].gapanapa);
+                    // /// jquerify the DOM object 'o' so we can use the html method
+                    // $(p).html(filter[j].gapanapa);
+                    // $("#selectLocalGov").append(p);
+                // option.text = filter[i].District;
+                // x.add(option);
+               // $('#selectDistrict').html('<option>'+filter[i].District+'</option>')
+
+               $.each(filters, function (i, item) {
+                $('#selectLocalGov').append($('<option>', { 
+                    value: item.gapanapa,
+                    text : item.gapanapa 
+                }));
+            });
+                
+            });
+             // console.log(geojson);
+            var medicalcount = 0;
+            var orientationcount = '{{ $data['orientationcount'] }}';
+            //alert(orientationcount);
+            var manpowercount = 0;
+            var insurancecount = '{{ $data['insurancecount'] }}';
+            var migrantcount = 0;
+
+
+            $(".checkbox").on("change", function() {
+            var layer_name = $(this).attr('value');
+            var layer_id = $(this).attr('id');
+            // console.log(layer_name);
+            var searchIDs = $('input:checked').map(function() {
+                return $(this).val();
+
+            });
+            var searched = searchIDs.get();
+            // console.log(searched);
+            // for (var i=0;i<6;i++){
+            if (searched.includes("medicallayer")) {
+                // console.log("it is inside")
+                $(".medical").html("780");
+            } else {
+
+                // console.log("it is outside");
+                $(".medical").html("....");
+
+            }
+            if (searched.includes("orientationlayer")) {
+                // console.log("it is inside")
+                $(".orientation").html(totaljson.features.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".orientation").html("....");
+
+            }
+            if (searched.includes("manpowerlayer")) {
+                // console.log("it is inside")
+                $(".manpower").html("200");
+            } else {
+
+                // console.log("it is outside");
+                $(".manpower").html("....");
+
+            }
+            if (searched.includes("insurancelayer")) {
+                // console.log("it is inside")
+                $(".insurance").html(insurancejson.features.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".insurance").html("....");
+
+            }
+            if (searched.includes("migrantlayer")) {
+                // console.log("it is inside")
+                $(".migrant").html("456");
+            } else {
+
+                // console.log("it is outside");
+                $(".migrant").html("....");
+
+            }
+
+
+            if ($(this).is(':checked') == true) {
+                // console.log(layer_name);
+
+                window[layer_name].setVisible(true);
+
+            } else {
+                // window[la.setVisible(false);
+
+                window[layer_name].setVisible(false);
+            }
+        });
+
+
+        // console.log(totaljson);
+        // console.log(totaljson.features[1].properties.ID);
+        // console.log(insurancejson);
+
+        function getFeatureByHid(featureHId) {
+            var featured = null;
+            var found = false;
+
+            for (var i = 0, len = totaljson.features.length; i < len; ++i) {
+                if (totaljson.features[i].properties.ID == featureHId) {
+                    featured = resto.features[i];
+                    found = true;
+                    break;
+                }
+            }
+
+            return featured;
+            // console.log(featured);
+        }
+
+        function SelectRestoByRestoId(ID) {
+            var feature = getFeatureByHid(ID);
+            if (feature) {
+                restoSelect.unselectAll();
+                restoSelect.select(feature);
+            }
+            return true;
+        }
+
+        function yourfunction(event, ui) {
+            return SelectRestoByRestoId(ui.item.id);
+        }
+
+           $('#reset').click(function(){
+            $("#selectProvince").val('').trigger('change') ;
+            $("#selectDistrict").val('').trigger('change') ;
+            $("#selectLocalGov").val('').trigger('change') ;
+            $("#apply").click()
+        });
+            
+           var substringMatcher = function(strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+
+                // an array that will be populated with substring matches
+                matches = [];
+
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+        // console.log(totaljson);
+        var states = typeahead_data;
+        var checktypeahead;
+        $('#the-basics .typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            name: 'states',
+            source: substringMatcher(states),
+            updater: function(item) {
+
+                //item = selected item
+                //do your stuff.
+
+                //dont forget to return the item to reflect them into input
+                return item;
+            }
+        }).on('typeahead:selected', function(e, datum) {
+            orientationlayer.setSource(orientationsource);
+            // console.log(datum);
+            var searched = [];
+            for (var s = 0; s < totaljson.features.length; s++) {
+                if (totaljson.features[s].properties.OrName == datum) {
+                    searched.push(totaljson.features[s]);
+                }
+                // if (insurancejson.features[])
+            }
+            for(var t=0;t<insurancejson.features.length; t++){
+                if(insurancejson.features[t].properties.CompanyName== datum)
+                    searched.push(insurancejson.features[t]);
+            }
+            // console.log(searched);
+
+
+            // console.log(string_latlng_array);
+            var lat = searched[0].geometry.coordinates[1];
+            var lon = searched[0].geometry.coordinates[0];
+            // console.log(lat);
+            // var lon = parseFloat(string_latlng_array[0]);
+            // console.log(lat);
+
+            map.getView().setCenter(ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'));
+
+            map.getView().setZoom(15);
+            
+            var fullcord = map.getView(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
+            // console.log(coord);
+            var coord = fullcord.N.center;
+            // console.log(fullcord.N.center);
+            // console.log(coord);
+            var container = document.getElementById('popup');
+            var content = document.getElementById('popup-content');
+            var closer = document.getElementById('popup-closer');
+            var overlay = new ol.Overlay({
+                element: container,
+                // autoPan: true,
+                autoPanAnimation: {
+                    duration: 250
+                }
+            });
+            map.addOverlay(overlay);
+            closer.onclick = function() {
+                overlay.setPosition(undefined);
+                closer.blur();
+                return false;
+
+            };
+            $('#popup').css("display", "block");
+            var feature = searched;
+            // console.log(feature);
+            var y = feature[0].properties.hasOwnProperty("OrName");
+             
+            // console.log(y);
+            if(y==true){
+            // if(feature.properties[2])
+            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                '<div class="custom-popup-header">' +
+                '<span class="amenity-name">' +
+                '<b>' + feature[0].properties.OrName + '</b>' +
+                '</span>' +
+                '<br>' +
+                '<span class="amenity-nepali-name">' + feature[0].properties.Address + '</span>' +
+                '</div>' +
+                '<div class="custom-popup-content">' +
+                '<table class="table table-striped">' +
+                '<thead>' +
+                '</thead>' +
+                '<tbody>' +
+                '<tr>' +
+                '<td>Permission No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Permission +
+                '</b></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >Contact No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Contact + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >Email' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Email + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >Province' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Province + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >District' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.District + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>' ;
+
+                // '<a href="http://naxa.com.np" title="" class="btn bg-gb text-white btn-block btn-sm mt-3">View Detail</a>';
+            // console.log("VARUN");
+            // var coordinate = evt.coordinate;
+        }
+        else{
+            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                '<div class="custom-popup-header">' +
+                '<span class="amenity-name">' +
+                '<b>' + feature[0].properties.CompanyName + '</b>' +
+                '</span>' +
+                '<br>' +
+                '<span class="amenity-nepali-name">' + feature[0].properties.Address + '</span>' +
+                '</div>' +
+                '<div class="custom-popup-content">' +
+                '<table class="table table-striped">' +
+                '<thead>' +
+                '</thead>' +
+                '<tbody>' +
+                // '<tr>' +
+                // '<td class="td-hoverable" title="title">Permission No' +
+                // '</td>' +
+                // '<td><b>' + feature[0].properties.Permission +
+                // '</b></td>' +
+                // '</tr>' +
+                '<tr>' +
+                '<td >Contact No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Contact + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >Email' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Email + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >Province' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Province + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td >District' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.District + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>' ;
+
+                // '<a href="http://naxa.com.np" title="" class="btn bg-gb text-white btn-block btn-sm mt-3">View Detail</a>';
+        }
+            content.innerHTML = popupcontent;
+
+            overlay.setPosition(coord);
+        });
+
+        function applyFilter(geojson, provinceValue, districtValue, localgovValue, datas) {
+        // console.log(insurancejson.features.length);
+        for (var i=0; i<geojson.features.length; i++) {
+            if(localgovValue=="" && districtValue == "" && provinceValue == "" ){
+                datas.push(geojson.features[i]);
+            }
+            if(localgovValue != "" ){
+                    if(geojson.features[i].properties.Local_Government == localgovValue){
+                        datas.push(geojson.features[i]);
+                    }
+            //     if(totaljson.features[i].properties.Province == provincevalue && totaljson.features[i].properties.District == districtValue && totaljson.features[i].properties.Local_Government == localgovValue){
+            //     console.log(totaljson.features[i]);
+            //    totaldata.push(totaljson.features[i]);
+            //    // console.log(totaldata);
+            }
+            else if (districtValue != "")
+            {
+                if(geojson.features[i].properties.District == districtValue){
+                    datas.push(geojson.features[i]);
+                }
+            }
+            else if (provinceValue!=""){
+                if(geojson.features[i].properties.Province == provinceValue){
+                    datas.push(geojson.features[i]);
+                }
+                
+            }
+        }
+        }
+    
+    
+               $("#apply").on('click', function() {
+
+            // console.log(siteListArray);
+            var totaldata_ori = [];
+            var totaldata_ins = [];
+            var provinceValue;
+            // if ($("#selectProvince").val() != "" ) {
+            provinceValue = $("#selectProvince").val();
+            // console.log(provinceValue);
+            // }
+
+            // console.log(provinceValue);
+
+            var districtValue;
+            // if ($("#selectDistrict").val() != "") {
+            districtValue = $("#selectDistrict").val();
+            // console.log(districtValue);
+            // }
+
+
+            var localgovValue;
+            // if ($("#selectLocalGov").val() != "") {
+            localgovValue = $("#selectLocalGov").val();
+            // console.log(localgovValue);
+            // }
+
+
+            applyFilter(totaljson, provinceValue, districtValue, localgovValue, totaldata_ori);
+            applyFilter(insurancejson, provinceValue, districtValue, localgovValue, totaldata_ins);
+            // console.log(insurancejson);
+            // console.log(totaldata_ori);
+            // console.log(totaldata_ins);
+            var searchID = $('input:checked').map(function() {
+                return $(this).val();
+
+            });
+            var searchedapply = searchID.get();
+            // console.log(searchedapply);
+
+            if (searchedapply.includes("orientationlayer")) {
+                // console.log("it is inside")
+                $(".orientation").html(totaldata_ori.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".orientation").html("....");
+
+            }
+            if (searchedapply.includes("insurancelayer")) {
+                // console.log("it is inside")
+                $(".insurance").html(totaldata_ins.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".insurance").html("....");
+
+            }
+            var filteredori;
+            var filteredins;
+            var filterorientation;
+            var filterinsurance;
+
+            function filtering(filters, alldata, filterlayer, xlayer) {
+                var filters = {
+                    "name": "orient",
+                    "type": "FeatureCollection",
+                    "features": alldata
+                }
+                // console.log(filtered);
+                filterApplied = true;
+                filterlayer = new ol.source.Vector({
+                    features: (new ol.format.GeoJSON()).readFeatures(filters, {
+                        featureProjection: 'EPSG:3857'
+                    })
+                });
+
+
+
+                xlayer.setSource(filterlayer);
+            }
+
+            filtering(filteredori, totaldata_ori, filterorientation, orientationlayer);
+            filtering(filteredins, totaldata_ins, filterinsurance, insurancelayer);
+
+
+        });
+
+        var highlightedFeatures = [],
+  selectStyle = new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: '#0d47a1',
+      width: 2
+    }),
+    image: new ol.style.Circle({
+      radius: 5.5,
+      stroke: new ol.style.Stroke({
+        color: '#0d47a1',
+        width: 2
+      })
+    })
+  });
+
+        $("#zoomin").on('click', function() {
+            // console.log("zoomin");
+            map.getView().setZoom(map.getView().getZoom() + 1);
+        });
+
+        $("#zoomout").on('click', function() {
+            // console.log("zoomout");
+            map.getView().setZoom(map.getView().getZoom() - 1);
+        });
+        $("#refresh").on('click', function() {
+            // console.log("mc-item");
+            // console.log(clusterSource.getExtent());
+            map.setView(new ol.View({
+                center: [9519345.179083776, 3298410.6445619236],
+                zoom: 7,
+                minZoom: 7,
+
+            }));
+        });
+        var total_json = null;
+        $.ajax({
+            url: "{{ asset('frontend/geojson/district.json') }}", //static_url+'assets/data/Hydropower_Sites.geojson',
+            //data: {},
+            async: false, //blocks window close
+            success: function(data) {
+                total_json = data;
+            }
+        });
+          $('#reset').click(function(){
+            $("#selectProvince").val('').trigger('change') ;
+            $("#selectDistrict").val('').trigger('change') ;
+            $("#selectLocalGov").val('').trigger('change') ;
+            $("#apply").click()
+        });
+        
+        $(".dropdown-list").select2({
+            theme: "bootstrap"
+        });
+        $('.close-panel').click(function() {
+            $(this).closest('.module-panel').addClass('d-none');
+            // console.log('working');
+        });
+    </script>
+@endpush   

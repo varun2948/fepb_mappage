@@ -1,0 +1,54 @@
+.infoModal .btn:focus, .infoModal .btn:active, button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  #image-gallery .modal-footer{
+    display: block;
+  }
+  
+  .galleryWrapper .thumb{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* margin-right: 10px; */
+    /* border: 1px solid black; */
+    
+    padding-bottom: 10px;
+  }
+  .galleryWrapper .galleryBox
+  {
+    background: #e6e6e6;
+    padding: 15px;
+  }
+  .galleryWrapper .modal-content
+  {
+      margin-top:104px;
+  }
+  .galleryWrapper .content h3
+  {
+      font-size: 16px;
+      text-align: center;
+  }
+  .galleryWrapper .content p
+  {
+    font-size: 14px;
+    text-align: center;
+    color: #afafaf;
+  }
+  .galleryWrapper .content hr
+  {
+      border-top: 1px solid #afafaf;
+  }
+  .galleryWrapper .content 
+  {
+      text-align: center;
+      padding-top: 10px;
+  }
+  .galleryWrapper .content a
+  {
+      background: #042864;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+  }

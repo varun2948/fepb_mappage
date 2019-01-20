@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- OPENLAYERS 4.6.5 -->
+<!--head start-->
+
+<head>
+    <!--meta tag start-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>वैदेशिक रोजगार प्रवर्द्धन बोर्ड</title>
+
+    <!-- faveicon start   -->
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+
+    <!-- stylesheet start -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ol.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/typeahead.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ol3-layerswitcher.css">
+    <link rel="stylesheet" type="text/css" href="css/ol-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/tt-typeaheadcustom.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" /> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
+    <!-- Chartist css -->
+    <link href="vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+    <link href="css/c3.css" rel="stylesheet">
+    <link href="css/aboutus.css" rel="stylesheet">
+    <style>
+        * body{
+        overflow-x: hidden; 
+    }
+    .layer-switcher {
+    right: auto;
+}
+   /*     
+        #iw-container .iw-title {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 10px;
+            margin: 0;
+            border-radius: 2px 2px 0 0;
+            color: black;
+            text-transform: uppercase;
+        }*/
+
+        .bg-gb {
+            background-color: #16a696 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        ul.multiselect-container.dropdown-menu.show {
+            position: absolute;
+            transform: none !important;
+
+            top: 39px !important;
+            left: 0px;
+            will-change: transform;
+            max-height: 300px;
+            overflow: auto;
+        }
+
+        label.checkbox {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .btn-group {
+            margin-right: 5px;
+        }
+
+        .box {
+            z-index: 9999;
+            background-color: #8dcde2;
+            height: 100px;
+            right: 0px;
+            float: left;
+        }
+        .custom-popup-header{color:#3590f3;border-bottom:1px solid #ccc;padding-right:20px;padding-bottom:10px}.amenity-name{margin:0}.amenity-nepali-name{margin:0;color:#888}.leaflet-popup-content{padding-right:10px}.custom-popup-content{max-height:200;overflow-y:scroll}.custom-popup-content td{padding:.2rem;font-size:.8rem}.custom-popup-content .tds-hoverable{cursor:pointer}.custom-popup-content .tds-hoverable:hover{text-decoration:underline;color:#3590f3}.custom-popup-content p{margin:0!important}.custom-popup-content br{margin-bottom:.5em!important}.leaflet-container{background-color:#001518}.custom .leaflet-popup-content-wrapper,.custom .leaflet-popup-tip{background:#fff;border-radius:0;font-size:1rem}.custom .leaflet-popup-scrolled{border:none}
+
+        #loader {
+                    position: absolute;
+                    left: 56%;
+                    top: 68%;
+                    z-index: 1;
+                    margin: -75px 0 0 -75px;
+                    border: 10px solid #ffffff;
+                    border-radius: 50%;
+                    border-top: 9px solid #e10707;
+                    width: 60px;
+                    height: 60px;
+                      -webkit-animation: spin 2s linear infinite;
+                      animation: spin 2s linear infinite;
+                  }
+
+                  @-webkit-keyframes spin {
+                      0% { -webkit-transform: rotate(0deg); }
+                      100% { -webkit-transform: rotate(360deg); }
+                  }
+
+                  @keyframes spin {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                  }
+
+                  /* Add animation to "page content" */
+                  .animate-bottom {
+                      position: relative;
+                      -webkit-animation-name: animatebottom;
+                      -webkit-animation-duration: 1s;
+                      animation-name: animatebottom;
+                      animation-duration: 1s
+                  }
+
+                  @-webkit-keyframes animatebottom {
+                      from { bottom:-100px; opacity:0 } 
+                      to { bottom:0px; opacity:1 }
+                  }
+
+                  @keyframes animatebottom { 
+                      from{ bottom:-100px; opacity:0 } 
+                      to{ bottom:0; opacity:1 }
+                  }
+
+        /*#inputDistrict{
+                display: none;
+            }*/
+    </style>
+</head>
+<!--head end-->
+
+<body>
+    <div id="loader"></div>
+    <header class="site-header">
+        <div class="container">
+            <div id="master-head" class="master-head">
+                <div class="page-toggle-button">
+                    <div class="hamburger-box">
+                        <span class="harmburger-inner"></span>
+                    </div>
+                </div>
+                <div class="menu-wrap">
+                    <a class="logo-link" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <div class="menu">
+                        <span class="close-toggle">
+                            <i class="fa fa-times-circle-o"></i>
+                        </span>
+                        <ul class="primary-menu">
+                            <li class="menu-item-has-current">
+                                <a href="index.html">गृहपृष्ठ</a>
+                            </li>
+                            <li class="menu-item-has-children ">
+                                <a href="aboutus.html">हाम्रो बारेमा </a>
+                                <ul>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको परिचय</a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको गठन</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको काम</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको सचिवालय</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="yojanaKaryakram.html">योजना तथा कार्यक्रम</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="yojanaKaryakram.html">योजना</a>
+                                    </li>
+                                    <li>
+                                        <a href="yojanaKaryakram.html">कार्यक्रम</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a href="media.html">मिडिया</a>
+                                <ul>
+                                    <li>
+                                        <a href="media.html">सूचना तथा समाचारहरु</a>
+                                    </li>
+                                    <li>
+                                        <a href="media.html">प्रेस विज्ञप्ति</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">तस्वीर संग्रह</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">भिडीयो संग्रह</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="download.html">डाउनलोड</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="download.html">ऐन तथा नियमावली </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">बुलेटिन </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">प्रगति प्रतिवेदन</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">रिपोर्ट</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">अन्य डाउनलोड्स</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a href="#">सम्पर्क तथा सुझाब</a> -->
+                                <a href="contactus.html">सम्पर्क</a>
+                                <!-- <ul>
+                                            <li>
+                                                <a href="#">बुलेटिनहरू</a>
+                                            </li>
+                                        </ul> -->
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="mapWrapper">
+        <div class="module-map-header">
+            <div class="row">
+                <div class="col-md-4  clearfix">
+                    <ul class="map-nav-list">
+                        <li class="active">
+                            <a href="#" title="">Map</a>
+                        </li>
+                        <li>
+                            <a href="datatable/home.html" title="">Data</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-6 clearfix">
+
+                    <ul class="map-control-list pull-right">
+                        <li id="zoomin">
+                            <a href="#" title=""><i class="fa fa-plus"></i></a>
+                        </li>
+                        <li id="zoomout">
+                            <a href="#" title=""><i class="fa fa-minus"></i></a>
+                        </li>
+                        <li id="refresh">
+                            <a href="#" title=""><i class="fa fa-refresh"></i></a>
+                        </li>
+                    </ul>
+                    <div class="search-wrap">
+                        <div class="input-group">
+                            <div id="the-basics">
+                                <input type="text" class="form-control typeahead" placeholder="Search Company Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-map-body">
+            <div class="map-filter-container">
+                <div class="module-panel">
+                    <div class="module-panel-header">
+                        <h6>Select Layer</h6>
+                    </div>
+                    <div class="module-panel-body">
+                        <ul class="layer-list">
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input checkbox" id="customControlInline" value="medicallayer" >
+                                    <label class="custom-control-label" for="customControlInline"><img src="images/newmarker/med.ico"width="24" height="24" alt="">Medical Centers</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline2" value="orientationlayer" checked>
+                                    <label class="custom-control-label" for="customControlInline2"> <img src="images/newmarker/or.ico" alt="" width="24" height="24"> Orientation Centers</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline3" value="manpowerlayer" >
+                                    <label class="custom-control-label" for="customControlInline3"><img src="images/newmarker/manpower.ico" alt="" width="24" height="24"> Recruiting Agencies </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline4" value="insurancelayer" checked >
+                                    <label class="custom-control-label" for="customControlInline4"> <img src="images/newmarker/insurance1.ico" width="24" height="24"> Insurance Companies</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="Checkbox" class="custom-control-input checkbox" id="customControlInline5" value="migrantlayer" >
+                                    <label class="custom-control-label" for="customControlInline5"> <img src="images/newmarker/migr.ico" width="24" height="24"> Migrant Resource Centers</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-panel mt-2">
+                    <div class="module-panel-header">
+                        <h6>Apply Filter</h6>
+                    </div>
+                    <div class="module-panel-body">
+                        <form id="selector">
+                            <div class="form-group">
+                                <label for="selectProvince">Province</label>
+                                <select class="form-control dropdown-list" id="selectProvince" placeholder="Select Province">
+                                    <option selected value="">Select Province</option>
+                                    <option value="province1">Province1</option>
+                                    <option value="province2">Province2</option>
+                                    <option value="province3">Province3</option>
+                                    <option value="province4">Province4</option>
+                                    <option value="province5">Province5</option>
+                                    <option value="province6">Province6</option>
+                                    <option value="province7">Province7</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="selectDistrict">District</label>
+                                <select class="form-control dropdown-list" id="selectDistrict">
+                                    <option selected value="">Select District</option>
+                                    <!-- <option>Jhapa</option>
+                                    <option>Ilam</option>
+                                    <option>Panchthar</option>
+                                    <option>Taplejung
+                                    <option>Morang</option>
+                                    <option>Sunsari</option>
+                                    <option>Bhojpur</option>
+                                    <option>Dhankuta
+                                    <option>Terhathum</option>
+                                    <option>Sankhuwasabha</option>
+                                    <option>Saptari</option>
+                                    <option>Siraha</option>
+                                    <option>Udayapur</option>
+                                    <option>Khotang</option>
+                                    <option>Okhaldhunga</option>
+                                    <option>Solukhumbu</option>
+                                    <option>Dhanusa</option>
+                                    <option>Mahottari</option>
+                                    <option>Sarlahi</option>
+                                    <option>Sindhuli
+                                    <option>Ramechhap
+                                    <option>Dolakha</option>
+                                    <option>Bhaktapur</option>
+                                    <option>Dhading
+                                    <option>Kathmandu</option>
+                                    <option>Kavrepalanchok</option>
+                                    <option>Lalitpur</option>
+                                    <option>Nuwakot</option>
+                                    <option>Rasuwa
+                                    <option>Sindhupalchok</option>
+                                    <option>Bara</option>
+                                    <option>Parsa</option>
+                                    <option>Rautahat
+                                    <option>Chitwan</option>
+                                    <option>Makwanpur</option>
+                                    <option>Gorkha</option>
+                                    <option>Kaski</option>
+                                    <option>Lamjung</option>
+                                    <option>Syangja</option>
+                                    <option>Tanahun
+                                    <option>Manang</option>
+                                    <option>Kapilvastu</option>
+                                    <option>Nawalparasi
+                                    <option>Rupandehi</option>
+                                    <option>Arghakhanchi</option>
+                                    <option>Gulmi</option>
+                                    <option>Palpa</option>
+                                    <option>Baglung</option>
+                                    <option>Myagdi</option>
+                                    <option>Parbat</option>
+                                    <option>Mustang</option>
+                                    <option>Dang Deukhuri</option>
+                                    <option>Pyuthan</option>
+                                    <option>Rolpa</option>
+                                    <option>Rukum</option>
+                                    <option>Salyan</option>
+                                    <option>Dolpa</option>
+                                    <option>Humla</option>
+                                    <option>Jumla</option>
+                                    <option>Kalikot</option>
+                                    <option>Mugu</option>
+                                    <option>Banke</option>
+                                    <option>Bardiya</option>
+                                    <option>Surkhet</option>
+                                    <option>Dailekh</option>
+                                    <option>Jajarkot</option>
+                                    <option>Kailali</option>
+                                    <option>Achham</option>
+                                    <option>Doti</option>
+                                    <option>Bajhang</option>
+                                    <option>Bajura</option>
+                                    <option>Kanchanpur</option>
+                                    <option>Dadeldhura</option>
+                                    <option>Baitadi</option>
+                                    <option>Darchula</option> -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="selectLocalUnit">Local Unit</label>
+                                <select class="form-control dropdown-list" id="selectLocalGov">
+                                    <option selected value="">Select LocalGovernment</option>
+                                    <!--   <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option> -->
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button id="reset" type="reset" class="btn btn-sm btn-block btn-default">Clear</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="apply" type="button" class="btn btn-sm btn-block btn-primary">Apply</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <div class="filter-result-container">
+                    <div class="module-panel">
+                        <div class="module-panel-header">
+                            <h6>Overall Data</h6>
+                         <!--    <div class="module-panel-action"><span class="close-panel"><i class="fa fa-close"></i></span></div> -->
+                        </div>
+                        <div class="module-panel-body">
+                            <ul class="result-list">
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count medical">...</span>
+                                        <span class="result-avatar"><img src="images/icon/medical.png" height="24px" width="24px"></span>
+                                        <span class="result-title">Medical Centers</span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="result-item">
+                                        <span id="orientationcount" class="result-count orientation">147</span>
+                                        <span class="result-avatar"><img src="images/icon/orientation.png" height="24px" width="24px"></span>
+                                        <span class="result-title">Orientation Centers</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count manpower">...</span>
+                                        <span class="result-avatar"><img src="images/icon/recruitingagency.png" height="24px" width="24px"></span>
+                                        <span class="result-title">Recruiting Agencies</span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count insurance">...</span>
+                                        <span class="result-avatar"><img src="images/icon/insurance.png" height="24px" width="24px"></span>
+                                        <span class="result-title">Insurance Companies</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="result-item">
+                                        <span class="result-count migrant">...</span>
+                                        <span class="result-avatar"><img src="images/icon/migrantresource.png" height="24px" width="24px"></span>
+                                        <span class="result-title">Migrant Resource Centers</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="map" style="width:100%; height:525px">
+                <div href="#" id="popup" style="display: none;" class="ol-popup">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <div id="popup-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jquery library section  -->
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/ol.js"></script>
+    <script src="js/ol3-layerswitcher.js"></script>
+    <script src="js/bootstrap-multiselect.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js"></script> -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/typeahead.js"></script>
+    <!-- <script src="js/twitter-typeahead.js"></script> -->
+
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- <script src="geojson/district.geojson"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
+
+    <script>
+
+        // $("#reset").on("click", function () {
+        //     $('#selectProvince').prop('selected', function() {
+        //         return this.defaultSelected;
+        //     });
+        // });
+        typeahead_data = [];
+        // $(document).ready(function() {
+        // var districtapi = null;
+        // $.ajax({
+        //     url: "geojson/district.json", //static_url+'assets/data/Hydropower_Sites.geojson',
+        //     //data: {},
+        //     async: false, //blocks window close
+        //     success: function(data) {
+        //         districtapi = JSON.parse(data);
+        //         // console.log(total_json);
+        //     }
+        // });
+
+
+        var orientationapi = null;
+        $.ajax({
+            url: 'http://fepb.gov.np/orientation', //static_url+'assets/data/Hydropower_Sites.geojson',
+            //data: {},
+            async: false, //blocks window close
+            success: function(data) {
+                orientationapi = data;
+
+            }
+        });
+
+        insuranceapi = null;
+        $.ajax({
+            url: 'http://fepb.gov.np/insurance', //static_url+'assets/data/Hydropower_Sites.geojson',
+            //data: {},
+            async: false, //blocks window close
+            success: function(data) {
+                insuranceapi = data;
+
+            }
+        });
+
+             insurancejson = JSON.parse(insuranceapi);
+        // console.log(insurancejson);
+        $(".insurance").html(insurancejson.features.length);
+
+
+        console.log(insurancejson.features.length);
+        // console.log(total);
+
+        totaljson = JSON.parse(orientationapi);
+        console.log(totaljson);
+        $(".orientation").html(totaljson.features.length);
+
+        for (var a = 0; a < totaljson.features.length; a++) {
+            typeahead_data.push(totaljson.features[a].properties.OrName);
+        }
+        console.log(typeahead_data);
+        for (var b = 0; b < insurancejson.features.length; b++) {
+            typeahead_data.push(insurancejson.features[b].properties.CompanyName);
+        }
+        console.log(typeahead_data);
+
+
+        
+        // console.log(orientationapi);
+        // console.log(total);
+
+   
+
+        // for(var a=0; a<totaljson.features.length;a++){
+        //     typeahead_data.push(totaljson.features[a].properties.OrName);
+        // }
+        // console.log(typeahead_data);
+        // });
+        // console.log(totaljson);
+        // console.log(insurancejson);
+
+
+        $('#example-reset-form').on('reset', function() {
+            $('.multi-checkbox option:selected').each(function() {
+                $(this).prop('selected', false);
+            })
+
+            $('.multi-checkbox').multiselect('refresh');
+        });
+
+
+        var attribution = new ol.control.Attribution({
+            collapsible: false
+        });
+        var scaleLineControl = new ol.control.ScaleLine();
+        var fullscreen = new ol.control.FullScreen();
+
+        //base Layer start//
+        // var osm = new ol.layer.Tile({
+        //     title: 'osm', // same name as variable
+        //     visible: false,
+        //     source: new ol.source.OSM({
+        //         attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+        //             'rest/services/World_Topo_Map/MapServer">OSM</a> | Developer © <a href="http://www.naxa.com.np">NAXA</a>',
+        //     })
+        // });
+
+        // osm_light.setZIndex(0);
+
+        //base Layer End
+        //START OF ICON FEATURE/STYLE //
+        // ICON RELATED STUFF ((IMG,STYLE,DATA) OF MARKER) //
+
+        var iconStyle = new ol.style.Style({
+            image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                anchor: [0.5, 40],
+                anchorXUnits: 'fraction',
+                anchorYUnits: 'pixels',
+                scale: 0.8,
+                opacity: 1,
+                src: 'images/newmarker/med.ico'
+            }))
+        });
+
+
+        //Province Layer Start
+
+        var styleCache = {};
+
+        provincesource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            url: "geojson/province.geojson",
+
+            format: new ol.format.GeoJSON()
+        });
+
+        provinceLayer = new ol.layer.Vector({
+            title: "Province",
+            source: provincesource,
+            style: function(feature, resolution) {
+                var text = resolution < 5000 ? 'Province ' + feature.get('Province') : '';
+                if (!styleCache[text]) {
+                    styleCache[text] = [new ol.style.Style({
+                        fill: new ol.style.Fill({
+                            color: 'rgba(0,0,0,0)'
+                            // color: 'rgb(255,255,255,1)'
+                            // color: 'rgba(214, 223, 240, 0.5)'
+                            // color: 'rgba(158,159,173,1)'
+                        }),
+                        stroke: new ol.style.Stroke({
+                             color: '#010405',
+                                lineDash: [4], //[0.1, 5],
+                                width: 2
+                        }),
+                        text: new ol.style.Text({
+                            font: '12px Calibri,sans-serif',
+                            text: text,
+                            fill: new ol.style.Fill({
+                                color: '#000'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: '#fff',
+                                width: 3
+                            })
+                        })
+                    })];
+                }
+                return styleCache[text];
+            }
+        });
+        provinceLayer.setZIndex(1);
+
+        medicalsource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            url: "geojson/orientation_centers.geojson",
+            // url: static_url+'assets/data/province.geojson',
+            format: new ol.format.GeoJSON()
+        });
+        medicallayer = new ol.layer.Vector({
+            title: "medical",
+            visible: false,
+            source: medicalsource,
+            style: iconStyle
+        });
+        medicallayer.setZIndex(1);
+
+        orientationsource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            // url: "geojson/orientation.geojson",
+            url: "http://fepb.gov.np/orientation",
+            format: new ol.format.GeoJSON()
+        });
+        orientationlayer = new ol.layer.Vector({
+            title: "manpower",
+            source: orientationsource,
+            style: new ol.style.Style({
+                image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                    anchor: [0.5, 40],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: 0.8,
+                    opacity: 1,
+                    src: 'images/newmarker/or.ico'
+                }))
+            })
+        });
+        orientationlayer.setZIndex(1);
+
+        manpowersource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            url: "geojson/geojson/1.geojson",
+            // url: static_url+'assets/data/province.geojson',
+            format: new ol.format.GeoJSON()
+        });
+        manpowerlayer = new ol.layer.Vector({
+            title: "manpower",
+            visible: false,
+            source: manpowersource,
+            style: new ol.style.Style({
+                image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                    anchor: [0.5, 40],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: 0.8,
+                    opacity: 1,
+                    src: 'images/newmarker/manpower.ico'
+                }))
+            })
+        });
+        manpowerlayer.setZIndex(1);
+
+        insurancesource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            url: "http://fepb.gov.np/insurance",
+            // url: static_url+'assets/data/province.geojson',
+            format: new ol.format.GeoJSON()
+        });
+        insurancelayer = new ol.layer.Vector({
+            title: "Insurance",
+            visible: true,
+            source: insurancesource,
+            style: new ol.style.Style({
+                image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                    anchor: [0.5, 40],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: 0.8,
+                    opacity: 1,
+                    src: 'images/newmarker/insurance1.ico'
+                }))
+            })
+        });
+        insurancelayer.setZIndex(1);
+
+        migrantsource = new ol.source.Vector({
+            'projection': 'EPSG:3857',
+            url: "geojson/geojson/3.geojson",
+            format: new ol.format.GeoJSON()
+        });
+        migrantlayer = new ol.layer.Vector({
+            title: "MigrantLayer",
+            visible: false,
+            source: migrantsource,
+            style: new ol.style.Style({
+                image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                    anchor: [0.5, 40],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: 0.8,
+                    opacity: 1,
+                    src: 'images/newmarker/migr.ico'
+                }))
+            })
+        });
+        migrantlayer.setZIndex(1);
+        // console.log(markersource.get());
+
+        //initialize map
+        map = new ol.Map({
+            layers: [
+                new ol.layer.Group({
+                    'title': 'Base maps',
+                    'name':'Baselayers',
+                    layers: [
+                        // new ol.layer.Group({
+                        //     title: 'Water color with labels',
+                        //     type: 'base',
+                        //     combine: true,
+                        //     visible: false,
+                        //     layers: [
+                        //         new ol.layer.Tile({
+                        //             source: new ol.source.Stamen({
+                        //                 layer: 'watercolor'
+                        //             })
+                        //         }),
+                        //         new ol.layer.Tile({
+                        //             source: new ol.source.Stamen({
+                        //                 layer: 'terrain-labels'
+                        //             })
+                        //         })
+                        //     ]
+                        // }),
+                        new ol.layer.Tile({
+                            title: 'Water color',
+                            type: 'base',
+                            visible: false,
+                            source: new ol.source.BingMaps({
+                                  key: 'AoTlmaazzog43ImdKts9HVztFzUI4PEOT0lmo2V4q7f20rfVorJGAgDREKmfQAgd',
+                                  imagerySet: 'Aerial',
+                            })
+                        }),
+
+                        new ol.layer.Tile({
+                            title: 'OSM',
+                            type: 'base',
+                            visible: true,
+                            source: new ol.source.OSM()
+                        }),
+                        new ol.layer.Tile({
+                            title: 'OSM',
+                            type: 'base',
+                            visible: true,
+                            source: new ol.source.OSM({
+                            attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                                'rest/services/World_Topo_Map/MapServer">OSM Light</a> | Developer © <a href="http://www.naxa.com.np">NAXA</a>',
+                            "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+                            // "url": "http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
+                        })
+                        })
+                    ]
+                }),
+                new ol.layer.Group({
+                    title: 'Overlays',
+                    layers: [provinceLayer, medicallayer, orientationlayer, manpowerlayer, insurancelayer, migrantlayer]
+                })
+            ],
+            target: document.getElementById('map'),
+
+            // target: 'map',
+            controls: ol.control.defaults({
+                attribution: false
+            }).extend([attribution, scaleLineControl, fullscreen]),
+
+            view: new ol.View({
+                center: [9519345.179083776, 3298410.6445619236],
+                zoom: 7,
+                minZoom: 6,
+                // maxZoom: 13
+            })
+
+        });
+       map.addControl(new ol.control.LayerSwitcher());
+//  [
+//      {
+//          layer : orientationlayer,
+//          config : {
+//              title : "test layer name 1",
+//              description : "test layer desc 1",
+//          }
+//      }
+//  ],
+//  {
+//      collapsed : true
+//  }
+// ));
+        // map.addControl(new ol.control.LayerSwitcher());
+
+
+                function styleFunction(feature, resolution) {
+            if (resolution != currentResolution) {
+                calculateClusterInfo(resolution);
+                currentResolution = resolution;
+            }
+            var style;
+            var size = feature.get('features').length;
+            // console.log(feature.get('radius'));
+            if (size > 1) {
+                style = new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: cluster_radius, //feature.get('radius'),
+                        fill: new ol.style.Fill({
+                            color: [22, 166, 150] //, Math.min(0.8, 0.4 + (size / maxFeatureCount))]
+                        })
+                    }),
+                    text: new ol.style.Text({
+                        text: size.toString(),
+                        textAlign: "center",
+                        textBaseline: "middle",
+                        fill: textFill,
+                        stroke: textStroke,
+                        offsetY: 1.5,
+                        offsetX: -1
+                    })
+
+                });
+            } else {
+                var originalFeature = feature.get('features')[0];
+                style = createEarthquakeStyle(originalFeature);
+            }
+            return style;
+        }
+
+
+        //  function styled(feature, resolution) {
+        //             var text = resolution < 5000 ? feature.get('FIRST_DIST') : '';
+        //             if (!styleCache[text]) {
+        //                 styleCache[text] = [new ol.style.Style({
+        //                     fill: new ol.style.Fill({
+        //                         color: 'rgba(0,0,0,0)'
+        //                     }),
+
+        //                     stroke: new ol.style.Stroke({
+        //                         color: 'rgba(73,78,103,0.2)',
+        //                         lineDash: [2],
+        //                         width: 2
+        //                     }),
+        //                     zIndex: 2,
+        //                     text: new ol.style.Text({
+        //                         font: '12px Calibri,sans-serif',
+        //                         text: text,
+        //                         fill: new ol.style.Fill({
+        //                             color: '#000'
+        //                         }),
+        //                         stroke: new ol.style.Stroke({
+        //                             color: '#fff',
+        //                             width: 3
+        //                         })
+        //                     })
+        //                 })];
+        //             }
+        //             return styleCache[text];
+        //         } 
+
+
+        previous_district = null;
+
+        function loadDistricts(provinceid) {
+            //Remove Previous Districts 
+            if (previous_district != null) {
+
+                map.removeLayer(previous_district);
+            }
+
+            window[provinceid + "source"] = new ol.source.Vector({
+                projection: 'EPSG:3857',
+                style: styleFunction,
+                url: 'geojson/province/' + provinceid + '.geojson',
+                format: new ol.format.GeoJSON()
+            });
+            window[provinceid] = new ol.layer.Vector({
+                source: window[provinceid + "source"],
+                style: function(feature, resolution) {
+                    // console.log(feature);
+                    var text = resolution < 5000 ? feature.get('FIRST_DIST') : '';
+                    if (!styleCache[text]) {
+                        styleCache[text] = [new ol.style.Style({
+                            fill: new ol.style.Fill({
+                                color: 'rgba(255, 255, 255, 0)',
+
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(0,0,0,0.5)',/*'rgba(73,78,103,0.5)',*/
+                                lineDash: [4], //[0.1, 5],
+                                 width: 2
+                            }),
+                             text: new ol.style.Text({
+                            font: '12px Calibri,sans-serif',
+                            text: text,
+                            fill: new ol.style.Fill({
+                                color: '#000'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: '#fff',
+                                width: 3
+                            })
+                        })
+                        })];
+                    }
+                    return styleCache[text];
+                    // return styles[feature.getGeometry().getType().getExtent()];
+                }
+            });
+
+            map.addLayer(window[provinceid]);
+            window[provinceid].setZIndex(0);
+            previous_district = window[provinceid];
+
+        }
+
+            map.on('moveend', function(e) {
+
+            //console.log(map.getView().getCenter());
+            var center = map.getView().getCenter();
+            var pixel = map.getPixelFromCoordinate(center);
+
+            var zoom = e.map.getView().getZoom();
+
+            // if (previous_district != null && zoom < 7) {
+            //     // clusters.getSource().setDistance(60);
+            //     map.removeLayer(previous_district);
+            // }
+            // if (zoom < 10) {
+
+            //     map.removeLayer(previous_district);
+            //     // map.removeLayer(previous_municipal);
+            // }
+            //console.log(pixel);
+            map.once('postrender', function(event) {
+
+
+                map.forEachFeatureAtPixel(pixel,
+                    function(feature, layer) {
+                // console.log(feature);
+                // if(layer== window[provinceid]){
+               if (feature.N.Province!=undefined && zoom >= 8) {
+                    // clusters.getSource().setDistance(0);
+                    loadDistricts("province" + feature.N.Province);
+
+                }
+               else if ( zoom < 8) {
+                    // clusters.getSource().setDistance(0);
+                    map.removeLayer(previous_district);
+                }
+            // }
+             });
+            });
+
+        });
+
+
+        //  IT IS USED TO CHANGE THE 4 digit Lat Longitude into normal 2digit LAT LNG)
+        // ol.proj.fromLonLat([87.54543, 28.54545]),
+
+
+        // var extent = map.getView().calculateExtent(map.getSize());
+        // console.log(extent);
+        //         var bottomLeft = ol.proj.transform(ol.extent.getBottomLeft(extent),
+        //             'EPSG:3857', 'EPSG:4326');
+        // console.log(extent);
+        // console.log(bottomLeft);
+
+        // console.log(map.getView().calculateExtent(map.getSize()));
+        // Nowadays, map.getSize() is optional most of the time (except if you don't share view between different maps), so above is equivalent to the following
+        // console.log(map.getView().calculateExtent());
+
+
+        //                 var extent = provinceLayer.getSource().getExtent();
+        // map.getView().fit(extent, map.getSize());
+
+        //to show the map at certain layer on first load
+        //                 var extent = markerlayer.getSource().getExtent();
+        // map.getView().fit(extent, map.getSize());
+
+        var element = document.getElementById('popup');
+        $('#popup-closer').on('click', function() {
+            map.setView(new ol.View({
+                center: [9519345.179083776, 3298410.6445619236],
+                zoom: 7,
+                minZoom: 7,
+
+            }));
+        });
+        map.on('singleclick', function(evt) {
+            var coordinate = evt.coordinate;
+            // console.log(coordinate);
+            var container = document.getElementById('popup');
+            var content = document.getElementById('popup-content');
+            var closer = document.getElementById('popup-closer');
+            var overlay = new ol.Overlay({
+                element: container,
+                autoPan: true,
+                autoPanAnimation: {
+                    duration: 250
+                }
+            });
+            map.addOverlay(overlay);
+            closer.onclick = function() {
+                overlay.setPosition(undefined);
+                closer.blur();
+                return false;
+
+            };
+            $('#popup').css("display", "block");
+            var feature = map.forEachFeatureAtPixel(evt.pixel,
+                function(feature, layer) {
+                    if (feature) {
+
+                        if (layer != provinceLayer && layer == orientationlayer) {
+                            var extent = feature.getGeometry().getExtent();
+                            // console.log(feature.get);
+                            // console.log(feature);
+                            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                                '<div class="custom-popup-header">' +
+                                '<span class="amenity-name">' +
+                                '<b>' + feature.N.OrName + '</b>' +
+                                '</span>' +
+                                '<br>' +
+                                '<span class="amenity-nepali-name">' + feature.N.Address + '</span>' +
+                                '</div>' +
+                                '<div class="custom-popup-content">' +
+                                '<table class="table table-striped">' +
+                                '<thead>' +
+                                '</thead>' +
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="title">Permission No' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Permission +
+                                '</b></td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Contact No' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Contact + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Email' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Email + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Province' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Province + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">District' +
+                                '</td>' +
+                                '<td><b>' + feature.N.District + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>' ;
+                            // console.log("VARUN");
+                            var coordinate = evt.coordinate;
+                            content.innerHTML = popupcontent;
+                            overlay.setPosition(coordinate);
+                        }
+
+                        if (layer != provinceLayer && layer == insurancelayer) {
+                            var extent = feature.getGeometry().getExtent();
+                            // console.log(feature.get);
+                            // console.log(feature);
+                            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                                '<div class="custom-popup-header">' +
+                                '<span class="amenity-name">' +
+                                '<b>' + feature.N.CompanyName + '</b>' +
+                                '</span>' +
+                                '<br>' +
+                                '<span class="amenity-nepali-name">' + feature.N.Address + '</span>' +
+                                '</div>' +
+                                '<div class="custom-popup-content">' +
+                                '<table class="table table-striped">' +
+                                '<thead>' +
+                                '</thead>' +
+                                '<tbody>' +
+                                // '<tr>' +
+                                // '<td class="td-hoverable" title="title">Permission No' +
+                                // '</td>' +
+                                // '<td><b>'+feature.N.Permission+
+                                // '</b></td>' +
+                                // '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Contact No' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Contact + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Email' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Email + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">Province' +
+                                '</td>' +
+                                '<td><b>' + feature.N.Province + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<td class="td-hoverable" title="var">District' +
+                                '</td>' +
+                                '<td><b>' + feature.N.District + '</b>' +
+                                '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>';
+                            // console.log("VARUN");
+                            var coordinate = evt.coordinate;
+                            content.innerHTML = popupcontent;
+                            overlay.setPosition(coordinate);
+                        }
+                    }
+                });
+        });
+        var extent = medicalsource.getExtent();
+        // console.log(extent)
+
+        map.on('pointermove', function(e) {
+            if (e.dragging) return;
+            var pixel = e.map.getEventPixel(e.originalEvent);
+            var hit = e.map.hasFeatureAtPixel(e.pixel, function(layer) {
+                return layer.get('name') === 'markerlayer';
+            });
+            e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+        });
+
+        // map.on('pointermove', function(evt) {
+        //  var feature = map.forEachFeatureAtPixel(evt.pixel,
+        //                        function(feature, layer) {
+        //                            if (feature) {
+        //                                if (layer == markerlayer) {
+        //                                    var extent = feature.getGeometry().getExtent();
+        //                                    // console.log(feature.get);
+        //                                    // console.log(extent)
+        //                                    // console.log("VARUN");
+        //                                }
+        //                            }
+        //                        })
+        //                    });
+
+        // console.log(map.getView().getCenter());
+
+        //loading start
+        provincesource.on('change', function(evt) {
+            var src = evt.target;
+            if (src.getState() === 'ready') {
+                document.getElementById("loader").style.display = "none";
+
+
+                // console.log("READY PROVINCE LAYER");
+            }
+
+        });
+        //District,GAPANAPA ACQUIRED FROM API (START)
+        var districtjson = null;
+        $.ajax({
+            url: "http://fepb.gov.np/district",
+            async: false,
+            success: function(data) {
+                districtjson = JSON.parse(data);
+            }
+        });
+        //District,GAPANAPA ACQUIRED FROM API (START)
+
+
+
+
+        //FOR FILTERING DISTRICT PROVINCE FROM 767 Data of GAPANAPA (START)
+
+        var grades = {};
+        districtjson.forEach(function(item) {
+            var grade = grades[item.Province] = grades[item.Province] || {};
+            grade[item.district] = true;
+        });
+
+        // console.log( JSON.stringify( grades, null, 4 ) )
+        var outputList = [];
+        for (var grade in grades) {
+            for (var domain in grades[grade]) {
+                outputList.push({
+                    Province: grade,
+                    District: domain
+                });
+            }
+        }
+        // console.log(outputList);
+
+        //FOR FILTERING DISTRICT PROVINCE FROM 767 Data of GAPANAPA (END) 
+
+
+        var filter = null;
+        //loading end
+        $("#selectProvince").on('change', function() {
+            $("#selectDistrict").empty();
+            $("#selectLocalGov").empty();
+            // $("#selectDistrict").html("Select District");
+
+            // $("#selectDistrict").html("Select District");
+            provincevalue = this.value.toLowerCase();
+            // console.log(provincevalue);
+            // names = [...new Set(outputList.map(a => a.district))];
+
+            // console.log(outputList);
+            filterdistrict = {}
+            filter = outputList.filter(function(item) {
+                return item.Province == provincevalue;
+
+            });
+            // console.log(filter);
+            document.getElementById("selectLocalGov").insertBefore(new Option('Select LocalGov', ''), document.getElementById("selectLocalGov").firstChild);
+
+
+            // console.log(filter.length);
+            document.getElementById("selectDistrict").insertBefore(new Option('Select District', ''), document.getElementById("selectDistrict").firstChild);
+            $.each(filter, function(i, item) {
+                $('#selectDistrict').append($('<option>', {
+                    value: item.District,
+                    text: item.District
+                }));
+            });
+
+        });
+        $("#selectDistrict").on('change', function() {
+            $("#selectLocalGov").empty();
+
+            districtvalue = this.value.toUpperCase();
+            // console.log(districtvalue);
+            filters = districtjson.filter(function(item) {
+                return item.district == districtvalue;
+                console.log(item.district);
+            });
+            // console.log(filters);
+            // console.log(filters.length);
+            document.getElementById("selectLocalGov").insertBefore(new Option('Select LocalGovernment', ''), document.getElementById("selectLocalGov").firstChild);
+            // for(var q=0;q<filters.length; q++){
+            //     // console.log(filter[i].District);
+            //     var select = document.getElementById("selectLocalGov");
+            //     select.options[select.options.length] = new Option(filter[q].gapanapa, filter[q].gapanapa);
+            // var p = new Option(filters[j].gapanapa, filters[j].gapanapa);
+            // /// jquerify the DOM object 'o' so we can use the html method
+            // $(p).html(filter[j].gapanapa);
+            // $("#selectLocalGov").append(p);
+            // option.text = filter[i].District;
+            // x.add(option);
+            // $('#selectDistrict').html('<option>'+filter[i].District+'</option>')
+
+            $.each(filters, function(i, item) {
+                $('#selectLocalGov').append($('<option>', {
+                    value: item.gapanapa,
+                    text: item.gapanapa
+                }));
+            });
+
+        });
+
+        //multiselect checkbox start//
+        // $("#inputProvince").on('change', function() {
+        //     var province_value = $("#inputProvince").val();
+        //     console.log(province_value);
+        // });
+        // $("#inputDistrict").on('change', function() {
+        //     var dist_value = $("#inputDistrict").val();
+        //     console.log(dist_value);
+        // });
+
+        // var chkArray = [];
+        // $(".checkbox").on("change", function() {
+        //     $(".chk:checked").each(function() {
+        //         var checkedvalue = ($(this).val());
+        //         // console.log(checkedvalue);
+        //     });
+        // });
+
+        // $("#buttonClass").click(function() {
+        //     getValueUsingClass();
+        // });
+
+
+        // function getValueUsingClass() {
+        //     /* declare an checkbox array */
+        //     var chkArray = [];
+
+        //     /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
+        //     $(".chk:checked").each(function() {
+        //         chkArray.push($(this).val());
+        //     });
+
+        //     /* we join the array separated by the comma */
+        //     var selected;
+        //     selected = chkArray.join(',');
+
+        //     /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
+        //     if (selected.length > 0) {
+        //         alert("You have selected " + selected);
+        //     } else {
+        //         alert("Please at least check one of the checkbox");
+        //     }
+        // }
+
+
+        var medicalcount = 780;
+        var orientationcount = 1050;
+        var manpowercount = 200;
+        var insurancecount = 1500;
+        var migrantcount = 456;
+
+
+        $(".checkbox").on("change", function() {
+            var layer_name = $(this).attr('value');
+            var layer_id = $(this).attr('id');
+            // console.log(layer_name);
+            var searchIDs = $('input:checked').map(function() {
+                return $(this).val();
+
+            });
+            var searched = searchIDs.get();
+            // console.log(searched);
+            // for (var i=0;i<6;i++){
+            if (searched.includes("medicallayer")) {
+                // console.log("it is inside")
+                $(".medical").html("780");
+            } else {
+
+                // console.log("it is outside");
+                $(".medical").html("....");
+
+            }
+            if (searched.includes("orientationlayer")) {
+                // console.log("it is inside")
+                $(".orientation").html(totaljson.features.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".orientation").html("....");
+
+            }
+            if (searched.includes("manpowerlayer")) {
+                // console.log("it is inside")
+                $(".manpower").html("200");
+            } else {
+
+                // console.log("it is outside");
+                $(".manpower").html("....");
+
+            }
+            if (searched.includes("insurancelayer")) {
+                // console.log("it is inside")
+                $(".insurance").html(insurancejson.features.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".insurance").html("....");
+
+            }
+            if (searched.includes("migrantlayer")) {
+                // console.log("it is inside")
+                $(".migrant").html("456");
+            } else {
+
+                // console.log("it is outside");
+                $(".migrant").html("....");
+
+            }
+
+
+            if ($(this).is(':checked') == true) {
+                // console.log(layer_name);
+
+                window[layer_name].setVisible(true);
+
+            } else {
+                // window[la.setVisible(false);
+
+                window[layer_name].setVisible(false);
+            }
+        });
+
+
+        console.log(totaljson);
+        // console.log(totaljson.features[1].properties.ID);
+        // console.log(insurancejson);
+
+        function getFeatureByHid(featureHId) {
+            var featured = null;
+            var found = false;
+
+            for (var i = 0, len = totaljson.features.length; i < len; ++i) {
+                if (totaljson.features[i].properties.ID == featureHId) {
+                    featured = resto.features[i];
+                    found = true;
+                    break;
+                }
+            }
+
+            return featured;
+            console.log(featured);
+        }
+
+        function SelectRestoByRestoId(ID) {
+            var feature = getFeatureByHid(ID);
+            if (feature) {
+                restoSelect.unselectAll();
+                restoSelect.select(feature);
+            }
+            return true;
+        }
+
+        function yourfunction(event, ui) {
+            return SelectRestoByRestoId(ui.item.id);
+        }
+
+
+
+        $('#reset').click(function(){
+            $("#selectProvince").val('').trigger('change') ;
+            $("#selectDistrict").val('').trigger('change') ;
+            $("#selectLocalGov").val('').trigger('change') ;
+            $("#apply").click()
+        });
+        // $('#clear').click(function() {
+        //     $("selectProvince").each(function() {
+        //         this.selectedIndex = 0
+
+        //     }).trigger('change');
+
+        // });
+        // $('#selector').on('reset', function() {
+        //     $('.dropdown-list option:selected').each(function() {
+        //         $(this).prop('selected', false);
+        //     })
+
+        //     $('.multi-checkbox').multiselect('refresh');
+        // });
+            console.log(map.getView().getZoom(),"ZOOM LEVEL");
+        var substringMatcher = function(strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+
+                // an array that will be populated with substring matches
+                matches = [];
+
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+        // console.log(totaljson);
+        var states = typeahead_data;
+        var checktypeahead;
+        $('#the-basics .typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            name: 'states',
+            source: substringMatcher(states),
+            updater: function(item) {
+
+                //item = selected item
+                //do your stuff.
+
+                //dont forget to return the item to reflect them into input
+                return item;
+            }
+        }).on('typeahead:selected', function(e, datum) {
+            orientationlayer.setSource(orientationsource);
+            console.log(datum);
+            var searched = [];
+            for (var s = 0; s < totaljson.features.length; s++) {
+                if (totaljson.features[s].properties.OrName == datum) {
+                    searched.push(totaljson.features[s]);
+                }
+                // if (insurancejson.features[])
+            }
+            for(var t=0;t<insurancejson.features.length; t++){
+                if(insurancejson.features[t].properties.CompanyName== datum)
+                    searched.push(insurancejson.features[t]);
+            }
+            console.log(searched);
+
+
+            // console.log(string_latlng_array);
+            var lat = searched[0].geometry.coordinates[1];
+            var lon = searched[0].geometry.coordinates[0];
+            // console.log(lat);
+            // var lon = parseFloat(string_latlng_array[0]);
+            // console.log(lat);
+
+            map.getView().setCenter(ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'));
+
+            map.getView().setZoom(15);
+            
+            var fullcord = map.getView(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
+            // console.log(coord);
+            var coord = fullcord.N.center;
+            console.log(fullcord.N.center);
+            console.log(coord);
+            var container = document.getElementById('popup');
+            var content = document.getElementById('popup-content');
+            var closer = document.getElementById('popup-closer');
+            var overlay = new ol.Overlay({
+                element: container,
+                // autoPan: true,
+                autoPanAnimation: {
+                    duration: 250
+                }
+            });
+            overlay.setOffset([0, -20]);
+            map.addOverlay(overlay);
+            closer.onclick = function() {
+                overlay.setPosition(undefined);
+                closer.blur();
+                return false;
+
+            };
+            $('#popup').css("display", "block");
+            var feature = searched;
+            console.log(feature);
+            var y = feature[0].properties.hasOwnProperty("OrName");
+             
+            console.log(y);
+            if(y==true){
+            // if(feature.properties[2])
+            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                '<div class="custom-popup-header">' +
+                '<span class="amenity-name">' +
+                '<b>' + feature[0].properties.OrName + '</b>' +
+                '</span>' +
+                '<br>' +
+                '<span class="amenity-nepali-name">' + feature[0].properties.Address + '</span>' +
+                '</div>' +
+                '<div class="custom-popup-content">' +
+                '<table class="table table-striped">' +
+                '<thead>' +
+                '</thead>' +
+                '<tbody>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="title">Permission No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Permission +
+                '</b></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Contact No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Contact + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Email' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Email + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Province' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Province + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">District' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.District + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            // console.log("VARUN");
+            // var coordinate = evt.coordinate;
+        }
+        else{
+            var popupcontent = '<div class="leaflet-popup-content"style="width: 100%;">' +
+                '<div class="custom-popup-header">' +
+                '<span class="amenity-name">' +
+                '<b>' + feature[0].properties.CompanyName + '</b>' +
+                '</span>' +
+                '<br>' +
+                '<span class="amenity-nepali-name">' + feature[0].properties.Address + '</span>' +
+                '</div>' +
+                '<div class="custom-popup-content">' +
+                '<table class="table table-striped">' +
+                '<thead>' +
+                '</thead>' +
+                '<tbody>' +
+                // '<tr>' +
+                // '<td class="td-hoverable" title="title">Permission No' +
+                // '</td>' +
+                // '<td><b>' + feature[0].properties.Permission +
+                // '</b></td>' +
+                // '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Contact No' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Contact + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Email' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Email + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">Province' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.Province + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="td-hoverable" title="var">District' +
+                '</td>' +
+                '<td><b>' + feature[0].properties.District + '</b>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+        }
+            content.innerHTML = popupcontent;
+
+            overlay.setPosition(coord);
+        });
+
+
+        // console.log(item);
+
+
+
+        $("#zoomin").on('click', function() {
+            console.log("zoomin");
+            map.getView().setZoom(map.getView().getZoom() + 1);
+        });
+
+        $("#zoomout").on('click', function() {
+            console.log("zoomout");
+            map.getView().setZoom(map.getView().getZoom() - 1);
+        });
+        $("#refresh").on('click', function() {
+            console.log("mc-item");
+            // console.log(clusterSource.getExtent());
+            map.setView(new ol.View({
+                center: [9519345.179083776, 3298410.6445619236],
+                zoom: 7,
+                minZoom: 7,
+
+            }));
+        });
+
+
+        // console.log(insurancejson);
+        function applyFilter(geojson, provinceValue, districtValue, localgovValue, datas) {
+            console.log(insurancejson.features.length);
+            for (var i = 0; i < geojson.features.length; i++) {
+                if (localgovValue == "" && districtValue == "" && provinceValue == "") {
+                    datas.push(geojson.features[i]);
+                }
+                if (localgovValue != "") {
+                    if (geojson.features[i].properties.Local_Government == localgovValue) {
+                        datas.push(geojson.features[i]);
+                    }
+                    //     if(totaljson.features[i].properties.Province == provincevalue && totaljson.features[i].properties.District == districtValue && totaljson.features[i].properties.Local_Government == localgovValue){
+                    //     console.log(totaljson.features[i]);
+                    //    totaldata.push(totaljson.features[i]);
+                    //    // console.log(totaldata);
+                } else if (districtValue != "") {
+                    if (geojson.features[i].properties.District == districtValue) {
+                        datas.push(geojson.features[i]);
+                    }
+                } else if (provinceValue != "") {
+                    if (geojson.features[i].properties.Province == provinceValue) {
+                        datas.push(geojson.features[i]);
+                    }
+
+                }
+            }
+        }
+        // for (var j=0; j<totaldata.length;j++){
+        //     if(totaljson.features[j].properties.District == districtValue){
+        //         console.log("district");
+        //         totaldata.push(totaljson.features[i]);
+        //         console.log(totaldata);
+        //     }
+        // }
+
+
+        // $(".orientation").html(totaljson.features.length);
+        //console.log(total_sites);
+        $("#apply").on('click', function() {
+
+            // console.log(siteListArray);
+            var totaldata_ori = [];
+            var totaldata_ins = [];
+            var provinceValue;
+            // if ($("#selectProvince").val() != "" ) {
+            provinceValue = $("#selectProvince").val();
+            console.log(provinceValue);
+            // }
+
+            // console.log(provinceValue);
+
+            var districtValue;
+            // if ($("#selectDistrict").val() != "") {
+            districtValue = $("#selectDistrict").val();
+            console.log(districtValue);
+            // }
+
+
+            var localgovValue;
+            // if ($("#selectLocalGov").val() != "") {
+            localgovValue = $("#selectLocalGov").val();
+            console.log(localgovValue);
+            // }
+
+
+            applyFilter(totaljson, provinceValue, districtValue, localgovValue, totaldata_ori);
+            applyFilter(insurancejson, provinceValue, districtValue, localgovValue, totaldata_ins);
+            // console.log(insurancejson);
+            console.log(totaldata_ori);
+            console.log(totaldata_ins);
+            var searchID = $('input:checked').map(function() {
+                return $(this).val();
+
+            });
+            var searchedapply = searchID.get();
+            // console.log(searchedapply);
+
+            if (searchedapply.includes("orientationlayer")) {
+                // console.log("it is inside")
+                $(".orientation").html(totaldata_ori.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".orientation").html("....");
+
+            }
+            if (searchedapply.includes("insurancelayer")) {
+                // console.log("it is inside")
+                $(".insurance").html(totaldata_ins.length);
+            } else {
+
+                // console.log("it is outside");
+                $(".insurance").html("....");
+
+            }
+            var filteredori;
+            var filteredins;
+            var filterorientation;
+            var filterinsurance;
+
+            function filtering(filters, alldata, filterlayer, xlayer) {
+                var filters = {
+                    "name": "orient",
+                    "type": "FeatureCollection",
+                    "features": alldata
+                }
+                // console.log(filtered);
+                filterApplied = true;
+                filterlayer = new ol.source.Vector({
+                    features: (new ol.format.GeoJSON()).readFeatures(filters, {
+                        featureProjection: 'EPSG:3857'
+                    })
+                });
+
+
+
+                xlayer.setSource(filterlayer);
+            }
+
+            filtering(filteredori, totaldata_ori, filterorientation, orientationlayer);
+            filtering(filteredins, totaldata_ins, filterinsurance, insurancelayer);
+
+
+        });
+
+        var highlightedFeatures = [],
+  selectStyle = new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: '#0d47a1',
+      width: 2
+    }),
+    image: new ol.style.Circle({
+      radius: 5.5,
+      stroke: new ol.style.Stroke({
+        color: '#0d47a1',
+        width: 2
+      })
+    })
+  });
+
+
+
+        // var highlightedFeatures = [],
+        //   selectStyle = new ol.style.Style({
+        //     stroke: new ol.style.Stroke({
+        //       color: '#0d47a1',
+        //       width: 2
+        //     }),
+        //     image: new ol.style.Circle({
+        //       radius: 5.5,
+        //       stroke: new ol.style.Stroke({
+        //         color: '#0d47a1',
+        //         width: 2
+        //       })
+        //     })
+        //   });
+        //   var zoomlevel=map.getView().getZoom();
+
+        // provinceLayer.on('pointermove', function(e) {
+        //   var i;
+        //   for (i = 0; i < highlightedFeatures.length; i++) {
+        //     highlightedFeatures[i].setStyle(null);
+        //   }
+        //   highlightedFeatures = [];
+        //   var feature=map.forEachFeatureAtPixel(e.pixel, function(feature,layer) {
+        //     console.log(layer);
+        //     if(layer==provinceLayer){
+        //         console.log(zoomlevel);
+            
+        //     feature.setStyle(selectStyle);
+        //     highlightedFeatures.push(feature);
+        //     }
+        //   });
+        // });
+
+
+        // map.on('pointermove', function (e) {
+        //   var pixel = map.getEventPixel(e.originalEvent);
+        //    map.forEachFeatureAtPixel(pixel, function (feature) {
+        //         console.log(feature);
+        //         feature.setStyle(selectStyle);
+        //         if(feature==null){
+        //             feature.setStyle(styled);
+        //         }
+        //       });
+        // });
+
+
+        $(".dropdown-list").select2({
+            theme: "bootstrap"
+        });
+        $('.close-panel').click(function() {
+            $(this).closest('.module-panel').addClass('d-none');
+            console.log('working');
+        });
+
+//         map.on("moveend", function(e){
+//             var zoomvalue= map.getView().getZoom();
+//             if(zoomvalue=="8"){}
+//            console.log(map.getView().getZoom());
+//     // event actions
+// });
+
+    </script>
+
+
+</body>
+
+</html>

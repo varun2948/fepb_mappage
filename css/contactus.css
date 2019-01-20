@@ -1,0 +1,130 @@
+label{
+    margin-bottom:0!important;
+    font-size: 18px;
+}
+
+.adress h5{
+    
+    padding-top:50px;
+    padding-bottom: 7px;
+   
+}
+.form_main span{
+    color:#e10707;
+}
+.adress h6,
+.adress h5{
+    font-size:20px;
+    font-weight:300;
+    /* padding-top:5px; */
+    opacity:0.6;
+    /* text-align: justify; */
+}
+.adress h6 i,
+.adress h5 i{
+    padding-right:20px;
+}
+.contactus{
+    margin-top:85px;
+    background:#fcfcfe;
+}
+.contactus1{
+    margin-top:25px;
+    background:#fcfcfe;
+}
+
+.contactus form_main {
+    width: 100%;
+}
+.contactus .form_main h4 {
+    font-family: roboto;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    margin-top: 3px;
+    text-transform: uppercase;
+}
+.contactus .heading {
+    border-bottom: 1px solid #fcab0e;
+    padding-bottom: 9px;
+    position: relative;
+}
+.contactus .heading span {
+    background: #9e6600 none repeat scroll 0 0;
+    bottom: -2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 75px;
+}   
+.contactus .form {
+    border-radius: 7px;
+    padding: 6px;
+}
+.contactus .txt[type="text"],
+.contactus .txt[type="email"] {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom:1px dotted #ccc;
+    margin: 0px 0px 21px 0px;
+    padding: 6px 12px;
+    width: 100%;
+    background:transparent;
+}
+.contactus .txt_3[type="text"] {
+    margin: 10px 0 0px 0;
+    padding: 4px 0 10px 5px;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+}
+.contactus .txt2[type="submit"] {
+    background: #042864 none repeat scroll 0 0;
+    border: 1px solid #042864;
+   
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+   
+    margin: 20px 0;
+    border-radius: 5px;
+    
+    padding: 10px 20px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+
+    .contactus .txt4 {
+        background: #042864 none repeat scroll 0 0;
+        /* border: 1px solid #4f5c04; */
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        font-style: normal;
+        /* line-height: 33px; */
+        /* margin: -5px 10px; */
+        /* padding: 0; */
+     margin: -10px 10px;
+
+        padding: 10px 20px;
+        text-transform: uppercase;
+        /* width: 29%; */
+    }
+
+/* .contactus .txt4:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #5793ef;
+    transition: all 0.5s ease 0s;
+} */
+.contactus .txt2:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #5793ef;
+    transition: all 0.5s ease 0s;
+}
+/* .contactus .txt5{
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 15px 0 20px 6px;
+    width: 100%;
+} */

@@ -1,0 +1,20 @@
+<table class="table table-responsive"></table>
+    <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Name of Country</th>
+        <th>Embassy (cha/chaina)</th>
+        <th>Contact Person</th>
+        <th>Contact Detail</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>UAE</td>
+            <td>Cha</td>
+            <td>Informartion Officer</td>
+            <td>Phone/email</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--head start-->
+
+<head>
+    <!--meta tag start-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>वैदेशिक रोजगार प्रवर्द्धन बोर्ड</title>
+
+    <!-- faveicon start   -->
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+
+    <!-- stylesheet start -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
+    <!-- Chartist css -->
+    <link href="vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+    <link href="css/c3.css" rel="stylesheet">
+    <link href="css/aboutus.css" rel="stylesheet">
+    <style>
+        #iw-container .iw-title {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 10px;
+            margin: 0;
+            border-radius: 2px 2px 0 0;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .bg-gb {
+            background-color: #16a696 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        ul.multiselect-container.dropdown-menu.show {
+            position: absolute;
+            transform: none !important;
+
+            top: 39px !important;
+            left: 0px;
+            will-change: transform;
+            max-height: 300px;
+            overflow: auto;
+        }
+
+        label.checkbox {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .tt-query,
+        /* UPDATE: newer versions use tt-input instead of tt-query */
+
+        .tt-hint,
+        .tt-input {
+            width: 279px;
+            height: 37px;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 30px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+
+        .tt-query {
+            /* UPDATE: newer versions use tt-input instead of tt-query */
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        .tt-hint {
+            color: #999;
+        }
+
+        .tt-menu {
+
+            width: 275px;
+            margin-top: -1px;
+            padding: 3px 0;
+            */ border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: -3px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            background-color: white;
+        }
+
+        .tt-suggestion {
+
+            padding: 15px 6px;
+            font-size: 15px;
+            line-height: 0px;
+            cursor: pointer;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid #ece6e6;
+        }
+
+        .tt-suggestion:hover {
+            color: #f0f0f0;
+            background-color: #0097cf;
+        }
+
+        .tt-cursor {
+            background-color: #0097cf;
+        }
+
+        .tt-suggestion p {
+            margin: 0;
+        }
+
+        /*.tt-menu {
+    width: 186px;
+    margin: 12px 0;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}*/
+
+        .btn-group {
+            margin-right: 5px;
+        }
+
+        .box {
+            z-index: 9999;
+            background-color: #8dcde2;
+            height: 100px;
+            right: 0px;
+            float: left;
+        }
+
+        /*#inputDistrict{
+                display: none;
+            }*/
+    </style>
+</head>
+<!--head end-->
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div id="master-head" class="master-head">
+                <div class="page-toggle-button">
+                    <div class="hamburger-box">
+                        <span class="harmburger-inner"></span>
+                    </div>
+                </div>
+                <div class="menu-wrap">
+                    <a class="logo-link" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <div class="menu">
+                        <span class="close-toggle">
+                            <i class="fa fa-times-circle-o"></i>
+                        </span>
+                        <ul class="primary-menu">
+                            <li class="menu-item-has-current">
+                                <a href="index.html">गृहपृष्ठ</a>
+                            </li>
+                            <li class="menu-item-has-children ">
+                                <a href="aboutus.html">हाम्रो बारेमा </a>
+                                <ul>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको परिचय</a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutus.html">बोर्डको गठन</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको काम</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="aboutus.html">बोर्डको सचिवालय</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="yojanaKaryakram.html">योजना तथा कार्यक्रम</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="yojanaKaryakram.html">योजना</a>
+                                    </li>
+                                    <li>
+                                        <a href="yojanaKaryakram.html">कार्यक्रम</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a href="media.html">मिडिया</a>
+                                <ul>
+                                    <li>
+                                        <a href="media.html">सूचना तथा समाचारहरु</a>
+                                    </li>
+                                    <li>
+                                        <a href="media.html">प्रेस विज्ञप्ति</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">तस्वीर संग्रह</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="media.html">भिडीयो संग्रह</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="download.html">डाउनलोड</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="download.html">ऐन तथा नियमावली </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">बुलेटिन </a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">प्रगति प्रतिवेदन</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">रिपोर्ट</a>
+                                    </li>
+                                    <li>
+                                        <a href="download.html">अन्य डाउनलोड्स</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a href="#">सम्पर्क तथा सुझाब</a> -->
+                                <a href="contactus.html">सम्पर्क</a>
+                                <!-- <ul>
+                                            <li>
+                                                <a href="#">बुलेटिनहरू</a>
+                                            </li>
+                                        </ul> -->
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="pb-breadcrumb" style="background:url(images/bg/1.jpg);">
+        <div class="breadcrumb-wrap">
+            <h2>Follow steps</h2>
+            <ul>
+                <li>
+                    <a href="index.html">गृहपृष्ठ</a>
+                </li>
+                <li>Faqs</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="inner-page section map">
+        <div class="container-fluid">
+            <div class="filter mapfilter row">
+                <form class="form-inline" id="example-reset-form">
+                    <!-- <form id="example-reset-form" class="form-inline" role="form"> -->
+
+                    <select id="inputProvince" class="multi-checkbox" multiple="multiple" autocomplete="off">
+                        <option id="1">Province 1</option>
+                        <option id="2">Province 2</option>
+                        <option id="3">Province 3</option>
+                        <option id="4">Province 4</option>
+                        <option id="5">Province 5</option>
+                        <option id="6">Province 6</option>
+                        <option id="7">Province 7</option>
+                    </select>
+
+
+                    <select id="inputDistrict" class="multi-checkbox" multiple="multiple" autocomplete="off">
+                        <option>ARGHAKHANCHI</option>
+
+                        <option>BAGLUNG</option>
+
+                        <option>BAITADI</option>
+
+                        <option>BAJHANG</option>
+
+                        <option>BAJURA</option>
+
+                        <option>BHOJPUR</option>
+
+                        <option>CHITAWAN</option>
+
+                        <option>DAILEKH</option>
+
+                        <option>DARCHULA</option>
+
+                        <option>DHADING</option>
+
+                        <option>DOLAKHA</option>
+
+                        <option>DOLPA</option>
+
+                        <option>DOTI</option>
+
+                        <option>GORKHA</option>
+
+                        <option>GULMI</option>
+
+                        <option>HUMLA</option>
+
+                        <option>ILAM</option>
+
+                        <option>JAJARKOT</option>
+
+                        <option>JUMLA</option>
+
+                        <option>KABHREPALANCHOK</option>
+
+                        <option>KAILALI</option>
+
+                        <option>KALIKOT</option>
+
+                        <option>KAPILBASTU</option>
+
+                        <option>KASKI</option>
+
+                        <option>KHOTANG</option>
+
+                        <option>LALITPUR</option>
+
+                        <option>LAMJUNG</option>
+
+                        <option>MAKAWANPUR</option>
+
+                        <option>MANANG</option>
+
+                        <option>MORANG</option>
+
+                        <option>MUGU</option>
+
+                        <option>MUSTANG</option>
+
+                        <option>MYAGDI</option>
+
+                        <option>NAWALPARASI_E</option>
+
+                        <option>NAWALPARASI_W</option>
+
+                        <option>NUWAKOT</option>
+
+                        <option>OKHALDHUNGA</option>
+
+                        <option>PALPA</option>
+
+                        <option>PANCHTHAR</option>
+
+                        <option>PARBAT</option>
+
+                        <option>PYUTHAN</option>
+
+                        <option>RAMECHHAP</option>
+
+                        <option>RASUWA</option>
+
+                        <option>ROLPA</option>
+
+                        <option>RUKUM_E</option>
+
+                        <option>RUKUM_W</option>
+
+                        <option>RUPANDEHI</option>
+
+                        <option>SANKHUWASABHA</option>
+
+                        <option>SINDHUPALCHOK</option>
+
+                        <option>SOLUKHUMBU</option>
+
+                        <option>SURKHET</option>
+
+                        <option>SYANGJA</option>
+
+                        <option>TANAHU</option>
+
+                        <option>TAPLEJUNG</option>
+
+                        <option>TERHATHUM</option>
+
+                    </select>
+
+                    <!--    <select id="statusSelect" name="cars" class="custom-select" autocomplete="off">
+                                <option selected>Status</option>
+                                <option class = "projectStatus" value = "Survey">Survey</option>
+                                <option class = "projectStatus" value = "Generation">Generation</option>
+                                <option class = "projectStatus" value = "Operation">Operation</option>
+                            </select> -->
+                    <select id="statusSelect" class="multi-checkbox" multiple="multiple" autocomplete="off">
+                        <option class="ProjectType" value="Swrot Kendra">Orientation Center</option>
+                        <option class="ProjectType" value="Manpower">Manpower</option>
+                        <option class="ProjectType" value="Training">Offices</option>
+
+                    </select>
+
+                    <!-- <select id="capacitySelect" name="cars" class="custom-select" autocomplete="off">
+                                <option selected>Capacity</option>
+                                <option class = "projectCapacity" value = "0_20">Less than 20mw</option>
+                                <option class = "projectCapacity" value = "20_100">Between 20-100mw</option>
+                                <option class = "projectCapacity" value = "100_20000">Greater than 100mw</option>
+                                </input>
+                            </select> -->
+
+                    <!-- <select id="capacitySelect" class="multi-checkbox" multiple="multiple" autocomplete="off">
+                                <div class="container">
+                                  <div class="row">
+                                   <option class = "projectCapacity" value = "0_20">Less than 20mw</option>
+                                   <option class = "projectCapacity" value = "20_100">Between 20-100mw</option>
+                                   <option class = "projectCapacity" value = "100_20000">Greater than 100mw</option>
+                               </div>
+                           </div>
+                       </select> -->
+                    <!-- <input type="button" id="btnget" value="Get Selected Values" /> -->
+                    <div class="btn-group">
+                        <button id="apply_button" type="button" class="btn btn-outline-primary">
+                            <i class="la la-check"></i> Apply</button>
+                        <button id="clear1" type="reset" class="btn btn-outline-primary">
+                            <i class="la la-close"></i> Clear </button>
+
+                    </div>
+                    <div id="the-basics">
+                        <input class="typeahead" type="text" placeholder="Search Name">
+                    </div>
+
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-lg">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Open Hydroportal-Niti Foundation</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Description.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+
+                <div class="hydro-md-9">
+
+                    <div id="map" style="width:100%; height:500px">
+                        <!-- <div id="box " class="box col-md-3">
+                        <div id="chk" class="checkboxes">
+                            <li><a><input type="checkbox" name="1" value= ""  class="provinceCheckBox" checked > Province</a>
+                            </li>
+                            <li><a><input type="checkbox" name="1" value= ""  class="distCheckbox" checked > District</a>
+                            </li>
+                        </div>
+                    </div> -->
+                    </div>
+                </div>
+                <div class="hydro-md-3">
+                    <aside class="sidebar sm-sidebar sb-top-right scrolling-wrap sh-600" tabindex="2" style="overflow: hidden; outline: none;">
+                        <div id="popup-sidebar" style="display:block;">
+							<div id="iw-container" class=""><div class="iw-title bg-gb text-white"><strong>Foreign Employment Promotion Board</strong></div><div id="container-data" class="bg-white scrolling-wrap sh-400"><table class="table table-striped"><tbody><tr><th><strong>Name</strong></th><td>Foreign Employment Promotion Board (MW)</td></tr><tr><th><strong>Address</strong></th><td>New Baneshwor, Kathmadu, Nepal</td></tr><tr><th><strong>Type</strong></th><td>Board</td></tr><tr><th><strong>Website</strong></th><td>http://www.fepb.gov.np</td></tr><tr><th><strong>Phone Number </strong></th><td>01-1233454</td></tr></tbody></table></div></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h4>सम्पर्क-ठेगाना</h4>
+                            <div class="content">
+                                <address>
+                                    <p>वैदेशिक रोजगार प्रवर्द्धन बोर्ड नयाँबानेश्वर, काठमाडाैं</p>
+                                </address>
+                                <address>
+                                    <p>फोन नं. ००१-४१०५०६८, ४१०५०६२</p>
+                                    <p>फ्याक्स नं. ०१४१०५०६१</p>
+                                    <p>र्इमेलः-info@fepb.gov.np</p>
+                                    <p>टोल फ्रि नं‌‌. १६६००१-५०००५</p>
+
+                                    <p>वेवसाइटः- http://fepb.gov.np</p>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h4>सामाजिक संजाल</h4>
+                            <div class="content">
+                                <div class="footer-social">
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="Your Email address..." class="form-control">
+                                        <button type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h4>फेसबुक पेज</h4>
+                            <div class="content">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <div class="container">
+                <div class="text">
+                    Copyright © 2018. वैदेशिक रोजगार प्रवर्द्धन बोर्ड
+                </div>
+            </div>
+        </div>
+
+        <!-- jquery library section  -->
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap-multiselect.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js"></script> -->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/twitter-typeahead.js"></script>
+
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+        <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+
+
+
+        <script>
+            $(document).ready(function () {
+                // $('.multi-checkbox').multiselect();
+                $('#inputDistrict').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select District',
+
+                });
+                $('#inputProvince').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select Province',
+
+                });
+                $('#capacitySelect').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select Capacity',
+
+                });
+                $('#statusSelect').multiselect({
+
+                    includeSelectAllOption: false,
+                    nonSelectedText: 'Select Type',
+
+                });
+                $('#example-reset-form').on('reset', function () {
+                    $('.multi-checkbox option:selected').each(function () {
+                        $(this).prop('selected', false);
+                    })
+
+                    $('.multi-checkbox').multiselect('refresh');
+                });
+
+                var grayscale = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                });
+                var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+                });
+                province_boundary = new L.geoJson.ajax("geojson/province.geojson", {
+                    onEachFeature: function (feature, layer) {
+                        layer.bindTooltip("Province " + feature.properties.Province);
+                        layer.on('click', function () {
+                            map.fitBounds(layer.getBounds());
+                        });
+                        layer.setStyle({
+                            fillColor: "red",
+                            fillOpacity: 0,
+                            weight: 1,
+                            opacity: 1,
+                            color: 'black'//,
+                            //dashArray: '3'
+
+                        });
+
+                    }
+                });
+
+                districtboundary = new L.geoJson.ajax("geojson/district.geojson", {
+                    onEachFeature: function (feature, layer) {
+                        layer.bindTooltip("Province " + feature.properties.District);
+                        layer.on('click', function () {
+                            map.fitBounds(layer.getBounds());
+                        });
+                        layer.setStyle({
+                            fillColor: '#ce93d8',
+                            fillOpacity: 0.3,
+                            weight: 1,
+                            opacity: 1,
+                            color: 'black'//,
+                            //dashArray: '3'
+
+                        });
+
+                    }
+                });
+
+                edu_marker = new L.geoJson.ajax("geojson/Educational_Facilities.geojson", {
+                    pointToLayer: function (feature, Latlng) {
+                        icons = L.icon({
+                            iconUrl: "images/governmentoffice1.png",
+                            iconSize: [40, 40]
+                        });
+
+                        var marker = L.marker(Latlng, { icon: icons });
+                        return marker;
+                    },
+                    onEachFeature: function (feature, layer) {
+                        var popupTxt = (feature.properties.name);
+						layer.bindPopup(popupTxt);
+						
+                        layer.on('click', onClick);
+                        // console.log(feature.properties.name);
+
+                        function onClick(e) {
+
+                            var contentHolder = document.getElementById('popup-sidebar');
+                            var popup = e.target.getPopup();
+                            var content = "popup.getContent()";
+                            var popupContent = '<div id="iw-container" class="">' +
+                                '<div class="iw-title bg-gb text-white"><strong>' + feature.properties.name + '</strong></div>' +
+
+                                '<div id="container-data" class="bg-white scrolling-wrap sh-400">' +
+                                '<table class="table table-striped">' +
+                                '<tbody>' +
+                                '<tr>' +
+                                '<th><strong>Name</strong></th>' +
+                                '<td>' + feature.properties.name + ' (MW)</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Address</strong></th>' +
+                                '<td>' + feature.properties.Address + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Type</strong></th>' +
+                                '<td>' + feature.properties.Type + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Website</strong></th>' +
+                                '<td>' + feature.properties.web + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Phone Number </strong></th>' +
+                                '<td>' + feature.properties.Contact_Nu + '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+
+                                '</div>';
+                            //console.log(coordinates);
+
+                            // console.log(content);
+                            // console.log(popupContent);
+                            contentHolder.innerHTML = popupContent;
+                        }
+                    }
+                });
+				
+				fepb = new L.geoJson.ajax("geojson/fepb.geojson", {
+                    pointToLayer: function (feature, Latlng) {
+                        icons = L.icon({
+                            iconUrl: "images/governmentoffice1.png",
+                            iconSize: [40, 40]
+                        });
+
+                        var marker = L.marker(Latlng, { icon: icons });
+                        return marker;
+                    },
+                    onEachFeature: function (feature, layer) {
+                        var popupTxt = (feature.properties.name);
+						layer.bindPopup(popupTxt);
+						
+                        layer.on('click', onClick);
+                        // console.log(feature.properties.name);
+
+                        function onClick(e) {
+
+                            var contentHolder = document.getElementById('popup-sidebar');
+                            var popup = e.target.getPopup();
+                            var content = "popup.getContent()";
+                            var popupContent = '<div id="iw-container" class="">' +
+                                '<div class="iw-title bg-gb text-white"><strong>' + feature.properties.name + '</strong></div>' +
+
+                                '<div id="container-data" class="bg-white scrolling-wrap sh-400">' +
+                                '<table class="table table-striped">' +
+                                '<tbody>' +
+                                '<tr>' +
+                                '<th><strong>Name</strong></th>' +
+                                '<td>' + feature.properties.name + ' (MW)</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Address</strong></th>' +
+                                '<td>' + feature.properties.Address + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Type</strong></th>' +
+                                '<td>' + feature.properties.Type + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Website</strong></th>' +
+                                '<td>' + feature.properties.web + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                '<th><strong>Phone Number </strong></th>' +
+                                '<td>' + feature.properties.Contact_Nu + '</td>' +
+                                '</tr>' +
+                                '</tbody>' +
+                                '</table>' +
+
+                                '</div>';
+                            //console.log(coordinates);
+
+                            // console.log(content);
+                            // console.log(popupContent);
+                            contentHolder.innerHTML = popupContent;
+                        }
+                    }
+                });
+				fepb_loc =  L.layerGroup([fepb]);
+				
+                var marker = L.layerGroup([edu_marker]);
+                var province = L.layerGroup([province_boundary]);
+                var district = L.layerGroup([districtboundary]);
+                var map = L.map('map', {
+                    center: [27.851615, 84.703477],
+                    zoom: 7,
+                    layers: [grayscale, province, fepb_loc]
+                });
+                var baseMaps = {
+                    "Openstreet Map": grayscale,
+                    "Esri WorldStreetMap": Esri_WorldStreetMap
+                };
+
+                var overlayMaps = {
+         
+                    "Province": province,
+                    "District": district,
+					"FEPB": fepb_loc
+                };
+                layerSwitcher = L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+				layerSwitcher.addOverlay(marker,"Offices");
+
+                // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                //     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+				var circle = L.circle([27.692810,85.336102], {
+					color: 'red',
+					fillColor: '#f03',
+					fillOpacity: 0.5,
+					radius: 1
+				}).addTo(map);
+				circle.bindPopup("Foreign Employment Promotion Board").openPopup();
+
+                var layers = {};
+                function checkboxfn() {
+
+                }
+
+                //    $( ".provinceCheckBox" ).click(function( event ) {
+                //        // console.log(this);
+                //         if (map.hasLayer(province_boundary)) {
+                //             map.removeLayer(province_boundary);
+                //         }
+                //         else{
+
+                //             map.addLayer(province_boundary);
+                //         } ;
+                // });
+                //    $( ".distCheckbox" ).click(function( event ) {
+                //        // console.log(this);
+                //         if (map.hasLayer(districtboundary)) {
+                //             map.removeLayer(districtboundary);
+                //         }
+                //         else{
+
+                //             map.addLayer(districtboundary);
+                //         } ;
+                // });
+
+            });
+            $('#clear1').click(function () {
+                $('#popup-sidebar').css("display", "block");
+                // $('#bar_graph').css("display","block");
+
+            });
+            var substringMatcher = function (strs) {
+                return function findMatches(q, cb) {
+                    var matches, substringRegex;
+
+                    // an array that will be populated with substring matches
+                    matches = [];
+
+                    // regex used to determine if a string contains the substring `q`
+                    substrRegex = new RegExp(q, 'i');
+
+                    // iterate through the pool of strings and for any string that
+                    // contains the substring `q`, add it to the `matches` array
+                    $.each(strs, function (i, str) {
+                        if (substrRegex.test(str)) {
+                            matches.push(str);
+                        }
+                    });
+
+                    cb(matches);
+                };
+            };
+
+            var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+                'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+                'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+                'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+                'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+                'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+                'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+                'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+                'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+            ];
+
+            $('#the-basics .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+                {
+                    name: 'states',
+                    source: substringMatcher(states)
+                });
+
+
+//  $('#the-basics .typeahead').typeahead({
+//     hint: true,
+//     highlight: true,
+//     minLength: 1
+//   },
+//   {
+//     //name: 'cities',
+//     display: 'name',
+//     source: substringMatcher(search_data),
+//     templates: {
+//       suggestion: function(data) {
+//       return '<p>' + data.name + '<a class="search_latlng" style="display:none;">' + data.latlng + '</a></p>';
+//   }
+//     }
+//   });
+//  $('.twitter-typeahead').on('click', '.tt-suggestion', function(){
+//                               // console.log($(this).find(".search_latlng").html());
+//                               var string_latlng = $(this).find(".search_latlng").html();
+//                               var string_latlng_array = string_latlng.split(',');
+//                               // console.log(string_latlng_array);
+//                               var lat= parseFloat(string_latlng_array[1]);
+//                               var lon= parseFloat(string_latlng_array[0]);
+//                               // console.log(lat);
+
+//                              map.getView().setCenter(ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'));
+//       map.getView().setZoom(15);
+//                           });
+
+// $(".tt-input").change(function() {
+//   $(".tt-suggestion:first-child", this).trigger('click');
+
+// });
+        </script>
+
+        <!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>

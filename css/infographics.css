@@ -1,0 +1,17 @@
+.infoModal .btn:focus, .infoModal .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.infographicsWrapper .thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.infographicsWrapper .modal-content
+{
+    margin-top:104px;
+}

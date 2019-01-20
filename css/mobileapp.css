@@ -1,0 +1,199 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+      color: #000;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+    text-align: center;
+     font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma !important;
+}
+.mobileapp .top-content
+{
+background: rgba(0, 0, 0, 0) linear-gradient(135deg, #01b9ff 0%, #ba78fe 51%, #ea51bd 100%) repeat scroll 0 0;
+ background-color:#ba78fe;
+}
+
+.mobileapp .inner-bg {
+    padding: 114px 0 100px;
+}
+
+.mobileapp .top-content .text h1 {
+    color: #fff;
+}
+.mobileapp h1, .mobileapp h2 {
+    font-size: 38px;
+    font-weight: 100;
+    line-height: 50px;
+    margin-top: 10px;
+}
+.mobileapp .top-content .text {
+    color: #fff;
+   
+    text-align: left;
+}
+.mobileapp .top-content .description {
+    margin: 20px 0 10px;
+}
+.mobileapp .top-content .description p {
+    opacity: 0.8;
+}
+
+.mobileapp .section-container {
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.mobileapp .app-features {
+    padding-bottom: 30px;
+}
+.mobileapp .section-description {
+    margin-top: 60px;
+}
+.mobileapp h1, .mobileapp h2 {
+    color: #555555;
+    font-size: 38px;
+    font-weight: 100;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.mobileapp .section-description p {
+    margin-top: 20px;
+    
+}
+.mobileapp .app-features-box {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.mobileapp .app-features-box h3 {
+    margin-top: 15px;
+}
+.mobileapp h3 {
+    color: #555555;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+/* .btn-link-2{
+  background: rgb(21, 23, 24);
+  
+  border-radius: 20px;
+  color: white;
+  padding: 5px 46px 6px 5em;
+  position: relative;
+  text-align: left;
+  transition: transform .25s, z-index 0s .25s;
+  
+  z-index: 1;
+  
+  } */
+  
+/* .btn-link-2 i{
+	font-size: 30px;
+	position: absolute;
+    left: 33px;
+    top:21%;
+}
+.btn-link-2 .small{
+	display: block;
+	font-size: 12px;
+	line-height: 7px;
+	margin-bottom: 2px;
+    margin-top: 5px;
+}
+.btn-link-2 .big{
+	display: block;
+	text-align: left;
+	font-size: 15px;
+    line-height: 24px;
+    font-weight:600;
+} */
+
+.mobileapp .top-big-link{
+    padding-top:5%;
+}
+
+.mobileapp .btn-link-1
+{
+
+    color:#fff;
+    background-color:#111;
+    border-color:#000;
+    padding:18px 59px 9px 70px;
+    /* position:relative; */
+    
+    font-weight:600;
+    border-radius:20px;
+    position: relative;
+    /* margin:0 auto !important; */
+    left: 19%;
+}
+.mobileapp .app-features-container ul li{
+    padding:1% 0;
+}
+.mobileapp .app-features-container ul li i{
+   color:#042864;
+   padding-right:5px;
+   font-size:20px;
+   font-weight:bold; 
+}
+.mobileapp .app-features-container{
+    text-align:justify;
+    padding:2% 0;
+}
+
+.mobileapp .btn-link-1:focus{color:#fff;background-color:#555;border-color:#000}
+.mobileapp .btn-link-1:active,.mobileapp .btn-link-1:hover, .btn-link-2:hover{color:#fff;background-color:#555;border-color:#000;}
+.mobileapp .btn-link-1:before{content:"";background-image:url(https://4.bp.blogspot.com/-52U3eP2JDM4/WSkIT1vbUxI/AAAAAAAArQA/iF1BeARv2To-2FGQU7V6UbNPivuv_lccACLcB/s30/nexus2cee_ic_launcher_play_store_new-1.png);background-size:cover;background-repeat:no-repeat;width:30px;height:30px;position:absolute;left:35px;top:50%;margin-top:-15px}
+.mobileapp .btn-link-1:after{content:"GET IT ON";position:absolute;top:5px;left:73px;font-size:10px;font-weight:400;}
+
+@media screen and (max-width: 460px) {
+    .mobileapp .btn-link-2{
+  display:none;
+  
+  
+  }
+  /* .btn-link-1{
+left:50%;
+  } */
+}
+@media screen and (max-width: 350px) {
+    
+  /* .btn-link-1{
+left:25%;
+  } */
+}
+.mobileapp .app-features-container hr{
+    width:30%;
+     border:1px solid red;
+}
+/* @media screen and (max-width: 350px) {
+    
+    .btn-link-1{
+  left:25%;
+    }
+  } */
+  @media screen and (max-width: 500px) {
+   .mobileapp .app-features-container hr{
+    width:50%;
+     border:1px solid red;
+}
+    
+  }
+  .mobileapp .app-features-container h2{
+       color:#052764;
+    }
+
+  @media screen and (max-width: 768px) {
+    .mobileapp .app-features-container img{
+        margin:0 auto;
+    }
+    .mobileapp .app-features-container h2{
+        text-align:center;
+    }
+   .mobileapp .app-features-container hr{
+        margin:0 auto;
+    }
+  }

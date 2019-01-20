@@ -1,0 +1,86 @@
+@import "../partials/mixin";
+@import url('https://fonts.googleapis.com/css?family=Ek+Mukta:400,500,600,700,800');
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    html {
+        height: 100vh;
+    }
+    @media (min-width: 1280px) {
+        .container {
+            max-width: 1280px;
+        }
+    }
+    @media (min-width: 768px) {
+        .container {
+            max-width: 1280px;
+        }
+    }
+    @media (min-width: 576px) {
+        .container {
+            max-width: 1280px;
+        }
+    }
+    @media (max-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        color: $color-primary;
+        font-size: 1em;
+        line-height: 1.5em;
+        font-family: $font-family-normal;
+        background-color: $color-bg;
+        a {
+            background-color: transparent;
+            text-decoration: none;
+            color: $color-primary;
+            text-decoration: none !important;
+            color: inherit;
+            a:active,
+            &:hover {
+                outline: 0;
+                color: $color-primary;
+            }
+        }
+        h3 {
+            font-weight: normal;
+        }
+        h2 {}
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: $color-primary;
+            margin: 0;
+            font-weight: normal;
+        }
+        ul,
+        ol,
+        li>ul,
+        li>ol {
+            margin: 0;
+            list-style: none;
+            padding: 0;
+        }
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+        p {
+            margin: 0;
+        }
+        @keyframes move {
+            50% {
+                bottom: 10px;
+                top: 0;
+            }
+        }
+    }
+}
